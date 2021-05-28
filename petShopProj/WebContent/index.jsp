@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>안녕하신가</title>
 </head>
 <body>
-hello world
+	<jsp:forward page="index.do"></jsp:forward>
 </body>
 </html>
