@@ -13,10 +13,11 @@
 		            </div>
 	  				<nav class="tm-nav">
 						<ul>
-							<li><a href="index.html" class="active">Home</a></li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="tours.html">Our Tours</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="index.do" class="active">Home</a></li>
+							<li><a href="about.html">CAT</a></li>
+							<li><a href="tours.html">DOG</a></li>
+							<li><a href="contact.html">Login</a></li>
+							<li><a href="contact.html">JOIN</a></li>
 						</ul>
 					</nav>		
 	  			</div>				
