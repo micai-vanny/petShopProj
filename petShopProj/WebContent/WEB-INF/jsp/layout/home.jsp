@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<section class="container tm-home-section-1" id="more">
+<!-- gray bg -->	
+	<section class="container tm-home-section-1" id="more">
 		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-6">
 				<!-- Nav tabs -->
@@ -198,7 +199,7 @@
 				</div>
 			</div>			
 		</div>
-	</section>
+	</section>		
 	
 	<!-- white bg -->
 	<section class="tm-white-bg section-padding-bottom">
