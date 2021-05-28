@@ -7,19 +7,20 @@
 		  <ul class="slides">
 		    <li>
 			    <div class="tm-banner-inner">
+				<img src="${pageContext.request.contextPath }/template/img/banner-1.jpg" alt="Image" />	
 				</div>
-				<img src="img/banner-1.jpg" alt="Image" />	
 		    </li>
 		    <li>
 			    <div class="tm-banner-inner">
+		      <img src="${pageContext.request.contextPath }/template/img/banner-2.jpg" alt="Image" />
 				</div>
-		      <img src="img/banner-2.jpg" alt="Image" />
 		    </li>
 		    <li>
 			    <div class="tm-banner-inner">
+		      <img src="${pageContext.request.contextPath }/template/img/banner-3.jpg" alt="Image" />
 				</div>
-		      <img src="img/banner-3.jpg" alt="Image" />
 		    </li>
 		  </ul>
 		</div>	
 	</section>
+	

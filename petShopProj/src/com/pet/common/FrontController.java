@@ -17,6 +17,7 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		// 요청페이지 - 실행컨트롤러
+		map.put("/index.do", new IndexPage());
 		
 	}
 	@Override
