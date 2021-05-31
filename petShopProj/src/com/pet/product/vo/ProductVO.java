@@ -12,6 +12,7 @@ public class ProductVO {
 	private int sale_price;
 	private String userId;
 	private int itemQty;
+	private int stock;
 	
 	public String getUserId() {
 		return userId;
@@ -78,5 +79,11 @@ public class ProductVO {
 	}
 	public void setSale_price(int sale_price) {
 		this.sale_price = sale_price;
+	}
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
 }

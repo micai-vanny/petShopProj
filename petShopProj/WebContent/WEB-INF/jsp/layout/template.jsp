@@ -8,7 +8,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Holiday - templatemo</title>
-
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/template/css/styles.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
 	<script type="text/javascript" src="${pageContext.request.contextPath }/template/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
   	<script type="text/javascript" src="${pageContext.request.contextPath }/template/js/moment.js"></script>							<!-- moment.js -->
 	<script type="text/javascript" src="${pageContext.request.contextPath }/template/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
