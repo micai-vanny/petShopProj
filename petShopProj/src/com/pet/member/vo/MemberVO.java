@@ -5,7 +5,7 @@ public class MemberVO {
 	private String id;
 	private String name;
 	private String password;
-	private String phoneNB;
+	private String email;
 	private String address;
 	public String getId() {
 		return id;
@@ -25,11 +25,12 @@ public class MemberVO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getPhoneNB() {
-		return phoneNB;
+
+	public String getEmail() {
+		return email;
 	}
-	public void setPhoneNB(String phoneNB) {
-		this.phoneNB = phoneNB;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getAddress() {
 		return address;

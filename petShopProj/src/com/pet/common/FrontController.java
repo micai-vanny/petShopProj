@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.pet.member.web.MemberJoin;
+import com.pet.member.web.MemberJoinForm;
+
 public class FrontController extends HttpServlet {
 	
 	private HashMap<String, DbCommand> map = new HashMap<>();
@@ -18,6 +21,8 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		// 요청페이지 - 실행컨트롤러
 		map.put("/index.do", new IndexPage());
+		map.put("/memberJoinForm.do", new MemberJoinForm());
+		map.put("/memberJoin.do", new MemberJoin());
 		
 	}
 	@Override
