@@ -61,7 +61,7 @@
 		});
 		
 		//'input[type=password]' 를 입력한이유는
-		// password 입력을 받는곳이 2개가 있기때문에 2개 중에 체인지가 발생하면 이벤트를 실행시키기 위해서이다.
+		// password 입력을 받는곳이 2개가 있기때문에 2개 중에 체인지가 발생하면 이벤트를 실행시키기 위해서이다.//
 		
 		$('input[type=password]').change(function(){
 			$('#passwordCheck').val('unChecked');
