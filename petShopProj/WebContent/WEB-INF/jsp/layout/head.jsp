@@ -18,7 +18,7 @@
 							<li><a href="catProductList.do">CAT</a></li>
 							<li><a href="petTip.do">PET Tips</a></li>
 							<li><a href="memberJoinForm.do">JOIN</a></li>
-							<li><a href="">LOGIN</a></li>
+							<li><a href="memberLoginForm.do">LOGIN</a></li>
 						</ul>
 					</nav>		
 	  			</div>				

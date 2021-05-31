@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.pet.member.web.MemberJoin;
 import com.pet.member.web.MemberJoinForm;
+import com.pet.member.web.MemberLoginForm;
 import com.pet.petTip.web.PetTipDelete;
 import com.pet.petTip.web.PetTipForm;
 import com.pet.petTip.web.PetTipInsert;
@@ -31,6 +32,7 @@ public class FrontController extends HttpServlet {
 		map.put("/index.do", new IndexPage());
 		map.put("/memberJoinForm.do", new MemberJoinForm());
 		map.put("/memberJoin.do", new MemberJoin());
+		map.put("/memberLoginForm.do", new MemberLoginForm());
 		
 		// 강아지 상품페이지
 		map.put("/dogProductList.do", new DogProductList());
