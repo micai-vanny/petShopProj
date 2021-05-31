@@ -13,6 +13,6 @@
 	</definition>
 
 	<definition name="WILDCARD:*/*" extends="home">
-		<put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}.jsp" />
+		<put-attribute name="home2" value="/WEB-INF/jsp/{1}/{2}.jsp" />
 	</definition>
 </tiles-definitions>

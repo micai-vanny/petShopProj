@@ -16,7 +16,7 @@
 							<li><a href="index.do" class="active">HOME</a></li>
 							<li><a href="">DOG</a></li>
 							<li><a href="">CAT</a></li>
-							<li><a href="">JOIN</a></li>
+							<li><a href="memberJoinForm.do">JOIN</a></li>
 							<li><a href="">LOGIN</a></li>
 						</ul>
 					</nav>		

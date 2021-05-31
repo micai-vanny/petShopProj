@@ -1,14 +1,16 @@
-package com.pet.common;
+package com.pet.member.web;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class IndexPage implements DbCommand {
+import com.pet.common.DbCommand;
+
+public class MemberJoinForm implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return "layout/home.tiles";
+		// 회원가입 페이지이동
+		return "member/memberJoinForm.tiles";
 	}
 
 }
