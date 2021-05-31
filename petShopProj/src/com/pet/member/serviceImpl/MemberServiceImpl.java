@@ -17,7 +17,7 @@ public class MemberServiceImpl extends DAO implements MemberService {
 	
 	//Id 중복체크
 	public boolean idCheck(String id) {
-		String sql = "select id from member where id = ?";
+		String sql = "select user_id from member where user_id = ?";
 		boolean idCheck = false;
 		try {
 			psmt = conn.prepareStatement(sql);
