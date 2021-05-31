@@ -12,6 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.pet.member.web.MemberJoin;
 import com.pet.member.web.MemberJoinForm;
+import com.pet.petTip.web.PetTipDelete;
+import com.pet.petTip.web.PetTipForm;
+import com.pet.petTip.web.PetTipInsert;
+import com.pet.petTip.web.PetTipList;
+import com.pet.petTip.web.PetTipSelect;
+import com.pet.petTip.web.PetTipUpdate;
 import com.pet.product.web.CatProductList;
 import com.pet.product.web.DogProductList;
 
@@ -26,12 +32,19 @@ public class FrontController extends HttpServlet {
 		map.put("/memberJoinForm.do", new MemberJoinForm());
 		map.put("/memberJoin.do", new MemberJoin());
 		
-		
 		// 강아지 상품페이지
 		map.put("/dogProductList.do", new DogProductList());
 		
 		// 고양이 상품페이지
 		map.put("/catProductList.do", new CatProductList());
+		
+		// Pet tip
+		map.put("/petTip.do", new PetTipList());
+		map.put("/petTipSelect.do", new PetTipSelect());
+		map.put("/petTipUpdate.do", new PetTipUpdate());
+		map.put("/petTipDelete.do", new PetTipDelete());
+		map.put("/petTipInsert.do", new PetTipInsert());
+		map.put("/petTipForm.do", new PetTipForm());
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
