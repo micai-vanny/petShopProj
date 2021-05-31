@@ -14,8 +14,8 @@
 	  				<nav class="tm-nav">
 						<ul>
 							<li><a href="index.do" class="active">HOME</a></li>
-							<li><a href="">DOG</a></li>
-							<li><a href="">CAT</a></li>
+							<li><a href="dogProductList.do">DOG</a></li>
+							<li><a href="catProductList.do">CAT</a></li>
 							<li><a href="memberJoinForm.do">JOIN</a></li>
 							<li><a href="">LOGIN</a></li>
 						</ul>

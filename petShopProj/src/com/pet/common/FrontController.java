@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.pet.member.web.MemberJoin;
 import com.pet.member.web.MemberJoinForm;
+import com.pet.product.web.CatProductList;
+import com.pet.product.web.DogProductList;
 
 public class FrontController extends HttpServlet {
 	
@@ -24,10 +26,18 @@ public class FrontController extends HttpServlet {
 		map.put("/memberJoinForm.do", new MemberJoinForm());
 		map.put("/memberJoin.do", new MemberJoin());
 		
+		
+		// 강아지 상품페이지
+		map.put("/dogProductList.do", new DogProductList());
+		
+		// 고양이 상품페이지
+		map.put("/catProductList.do", new CatProductList());
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("utf-8");
+		resp.setContentType("text/html;charset=utf-8");
 		String uri = req.getRequestURI();
 		String cpath = req.getContextPath();
 		String path = uri.substring(cpath.length());

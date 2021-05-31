@@ -10,17 +10,17 @@ import com.pet.product.service.ProductService;
 import com.pet.product.serviceImpl.ProductServiceImpl;
 import com.pet.product.vo.ProductVO;
 
-public class ProductList implements DbCommand {
+public class CatProductList implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		String divCode = "D";
+		String divCode = "C";
 		
 		ProductService service = new ProductServiceImpl();
-		List<ProductVO> list = service.dogProductList(divCode);
+		List<ProductVO> list = service.catProductList(divCode);
 		
 		request.setAttribute("list", list);
-		return "product/productList.titles";
+		return "product/catProductList.tiles";
 	}
 
 }

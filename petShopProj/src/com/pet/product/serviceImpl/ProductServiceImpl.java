@@ -32,7 +32,7 @@ public class ProductServiceImpl extends DAO implements ProductService {
 				vo.setLikeIt(rs.getInt("like_it"));
 				vo.setPrice(rs.getInt("price"));
 				vo.setSale(rs.getString("sale"));
-				vo.setSale_price(rs.getInt("sale_price"));
+				vo.setSalePrice(rs.getInt("sale_price"));
 				vo.setStock(rs.getInt("stock"));
 				dogProdList.add(vo);
 			}
@@ -45,7 +45,29 @@ public class ProductServiceImpl extends DAO implements ProductService {
 	@Override
 	public List<ProductVO> catProductList(String divCode) {
 		// 고양이 용품 전체 불러오기
-		return null;
+			String sql = "select * from product where div_code = ?";
+			List<ProductVO> dogProdList = new ArrayList<ProductVO>();
+				
+			try {
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, divCode);
+				rs = psmt.executeQuery();
+				while(rs.next()) {
+					ProductVO vo = new ProductVO();
+					vo.setItemCode(rs.getString("item_code"));
+					vo.setItemName(rs.getString("item_name"));
+					vo.setItemImage(rs.getString("item_image"));
+					vo.setLikeIt(rs.getInt("like_it"));
+					vo.setPrice(rs.getInt("price"));
+					vo.setSale(rs.getString("sale"));
+					vo.setSalePrice(rs.getInt("sale_price"));
+					vo.setStock(rs.getInt("stock"));
+					dogProdList.add(vo);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return dogProdList;
 	}
 
 	@Override
@@ -115,7 +137,7 @@ public class ProductServiceImpl extends DAO implements ProductService {
 				vo.setItemImage(rs.getString("item_image"));
 				vo.setPrice(rs.getInt("price"));
 				vo.setSale(rs.getString("sale"));
-				vo.setSale_price(rs.getInt("sale_price"));
+				vo.setSalePrice(rs.getInt("sale_price"));
 				cartList.add(vo);
 			}
 		} catch (SQLException e) {

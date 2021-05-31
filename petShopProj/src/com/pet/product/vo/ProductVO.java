@@ -9,7 +9,7 @@ public class ProductVO {
 	private int price;
 	private int likeIt;
 	private String sale;
-	private int sale_price;
+	private int salePrice;
 	private String userId;
 	private int itemQty;
 	private int stock;
@@ -74,11 +74,11 @@ public class ProductVO {
 	public void setSale(String sale) {
 		this.sale = sale;
 	}
-	public int getSale_price() {
-		return sale_price;
+	public int getSalePrice() {
+		return salePrice;
 	}
-	public void setSale_price(int sale_price) {
-		this.sale_price = sale_price;
+	public void setSalePrice(int salePrice) {
+		this.salePrice = salePrice;
 	}
 	public int getStock() {
 		return stock;
