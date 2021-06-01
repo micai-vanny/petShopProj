@@ -21,7 +21,8 @@
 
 						<c:choose>
 							<c:when test="${!empty id }">
-								<li><a href="">LOGOUT</a></li>
+								<li><a href="memberLogOut.do">LOGOUT</a></li>
+								<li><a href="memberMenu.do">My Menu</a></li>
 							</c:when>
 							<c:otherwise>
 								<li><a href="memberJoinForm.do">JOIN</a></li>
