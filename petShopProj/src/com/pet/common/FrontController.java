@@ -20,6 +20,7 @@ import com.pet.petTip.web.PetTipList;
 import com.pet.petTip.web.PetTipSelect;
 import com.pet.petTip.web.PetTipUpdate;
 import com.pet.product.web.CatProductList;
+import com.pet.product.web.CatProductSelect;
 import com.pet.product.web.DogProductList;
 
 public class FrontController extends HttpServlet {
@@ -39,6 +40,7 @@ public class FrontController extends HttpServlet {
 		
 		// 고양이 상품페이지
 		map.put("/catProductList.do", new CatProductList());
+		map.put("/catProductSelect.do", new CatProductSelect());
 		
 		// Pet tip
 		map.put("/petTip.do", new PetTipList());
