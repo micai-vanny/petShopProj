@@ -26,7 +26,7 @@
 				</tr>
 				<tr>
 					<th>비밀번호</th>
-					<td><input type="text" name="memberPwd" id="memberPwd"></td>
+					<td><input type="password" name="memberPwd" id="memberPwd"></td>
 				</tr>
 			</table>
 		</div>
