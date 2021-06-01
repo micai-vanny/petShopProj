@@ -5,19 +5,24 @@ import java.util.Date;
 public class BoardVO {
 
 	private int boardid;
+	private String userName;
 	private String title;
 	private String content;
-	private String writer;
+	private String userId;
+	private String image;
 	private Date date;
-	private int hit;
-	private int like;
-	
-	
+	private int appraisal;
 	public int getBoardid() {
 		return boardid;
 	}
 	public void setBoardid(int boardid) {
 		this.boardid = boardid;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public String getTitle() {
 		return title;
@@ -31,11 +36,17 @@ public class BoardVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getWriter() {
-		return writer;
+	public String getUserId() {
+		return userId;
 	}
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 	public Date getDate() {
 		return date;
@@ -43,19 +54,11 @@ public class BoardVO {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public int getHit() {
-		return hit;
+	public int getAppraisal() {
+		return appraisal;
 	}
-	public void setHit(int hit) {
-		this.hit = hit;
+	public void setAppraisal(int appraisal) {
+		this.appraisal = appraisal;
 	}
-	public int getLike() {
-		return like;
-	}
-	public void setLike(int like) {
-		this.like = like;
-	}
-	
-	
 	
 }
