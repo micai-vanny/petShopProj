@@ -8,45 +8,45 @@
 			<td style="width:20%">
 				<button>돌아가기</button>
 			</td>
-			<td style="width:80%">
+			<td style="width:80%" align="center">
 				제품 상세 정보
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2">
-				${vo.itemImage }
+			<td colspan="2" align="center">
+				<img src ="upload/${catProd.itemImage }" alt="상품대표이미지">
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2">
-				${vo.itemName }
+			<td colspan="2" align="center">
+				${catProd.itemName }
 			</td>
 		</tr>
 		<tr>
 			<c:choose>
-				<c:when test="${vo.sale eq 'N' }">
-					<td colspan="2">
-						<fmt:formatNumber type="currency" value="${vo.price }"></fmt:formatNumber>
+				<c:when test="${catProd.sale eq 'N' }">
+					<td colspan="2" align="right">
+						<fmt:formatNumber type="currency" value="${catProd.price }"></fmt:formatNumber>
 					</td>
 				</c:when>
 				<c:otherwise>
-					<td colspan="2">
+					<td colspan="2" align="right">
 						<span class="text-muted text-decoration-line-through">
-							<fmt:formatNumber type="currency" value="${vo.price }"></fmt:formatNumber>
+							<fmt:formatNumber type="currency" value="${catProd.price }"></fmt:formatNumber>
 						</span>&nbsp;
 		                <fmt:formatNumber type="currency"
-							value="${vo.salePrice }"></fmt:formatNumber>
+							value="${catProd.salePrice }"></fmt:formatNumber>
 					</td>
 				</c:otherwise>
 			</c:choose>
 		</tr>
 		<tr>
-			<td colspan="2">
-				${vo.itemDesc }
+			<td colspan="2" align="center">
+				${catProd.itemDesc }
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2">
+			<td colspan="2" align="center">
 				여기엔 리뷰가 들어갈 예정
 			</td>
 		</tr>

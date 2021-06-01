@@ -44,9 +44,9 @@
 		</table>
 		</div>
 		<div>
-			<button type="button" onclick="location.href='main.do'">홈으로</button>
+			<button type="button" onclick="location.href='index.do'">홈으로</button>
 			<c:if test="${id eq 'admin' }">
-				<button type="button" onclick="location.href='petTipInsert.do'">글쓰기</button>
+				<button type="button" onclick="location.href='petTipForm.do'">글쓰기</button>
 			</c:if>
 		</div>
 	</div>

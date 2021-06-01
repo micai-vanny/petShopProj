@@ -71,14 +71,12 @@ public class ProductServiceImpl extends DAO implements ProductService {
 	}
 
 	@Override
-	public ProductVO catProductSelect(String itemCode) {
+	public ProductVO catProductSelect(ProductVO vo) {
 		// 고양이 용품 상세보기
 		String sql = "select * from product where item_code = ?";
-		ProductVO vo = new ProductVO();
-		
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, itemCode);
+			psmt.setString(1, vo.getItemCode());
 			rs=psmt.executeQuery();
 			
 			if(rs.next()) {
@@ -92,12 +90,14 @@ public class ProductServiceImpl extends DAO implements ProductService {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close();
 		}
 		return vo;
 	}
 	
 	@Override
-	public ProductVO dogProductSelect(String itemCode) {
+	public ProductVO dogProductSelect(ProductVO vo) {
 		// 상품 상세보기
 		return null;
 	}

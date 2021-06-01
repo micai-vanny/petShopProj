@@ -7,14 +7,17 @@
 <head>
 <meta charset="UTF-8">
 <title>동동건마켙:::고양이</title>
+</head>
+<body>
 <script>
-	function(itemCode) {
+	function formSubmit(itemCode) {
 		frm.itemCode.value = itemCode;
 		frm.submit();
 	}
 </script>
-</head>
-<body>
+	<form id ="frm" action="catProductSelect.do" method="post">
+		<input type="hidden" id="itemCode" name="itemCode">
+	</form>
 	<section class="py-5">
 		<div class="container px-4 px-lg-5 mt-5">
 			<div
@@ -42,13 +45,11 @@
 						</div>
 					</div>
 				</div>
+				
 				<!-- 반복 시작 -->
 				<c:forEach items="${list }" var="vo">
-					<form id ="frm" action="catProductSelect.do" method="post">
-						<input type="hidden" id="itemCode" name="itemCode">
-					</form>
 					<!-- 두번째 데이터 -->
-					<div class="col mb-5" onclick="formSubmit(${vo.itemCode})">
+					<div class="col mb-5">
 						<div class="card h-100">
 							<!-- Sale badge-->
 							<!-- sale 컬럼에 Y면 세일 뱃지 띄우셈 -->
@@ -57,7 +58,7 @@
 									style="top: 0.5rem; right: 0.5rem">Sale</div>
 							</c:if>
 							<!-- Product image-->
-							<img class="card-img-top" src="upload/${vo.itemImage }" alt="상품이미지" />
+							<img class="card-img-top" src="upload/${vo.itemImage }" alt="상품이미지" onclick="formSubmit('${vo.itemCode}')">
 							<!-- Product details-->
 							<div class="card-body p-4">
 								<div class="text-center">

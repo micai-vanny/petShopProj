@@ -18,7 +18,7 @@ public class CatProductSelect implements DbCommand {
 		vo.setItemCode(itemCode);
 		
 		ProductService service = new ProductServiceImpl();
-		service.catProductSelect(itemCode);
+		service.catProductSelect(vo);
 		
 		request.setAttribute("catProd", vo);
 		

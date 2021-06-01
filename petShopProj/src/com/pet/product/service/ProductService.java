@@ -9,8 +9,8 @@ public interface ProductService {
 	
 	List<ProductVO> dogProductList(String divCode);
 	List<ProductVO> catProductList(String divCode);
-	ProductVO catProductSelect(String itemCode);
-	ProductVO dogProductSelect(String itemCode);
+	ProductVO catProductSelect(ProductVO vo);
+	ProductVO dogProductSelect(ProductVO vo);
 	int insertProduct(ProductVO vo);
 	int updateProduct(ProductVO vo);
 	int deleteProduct(ProductVO vo);

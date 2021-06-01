@@ -16,7 +16,7 @@ public class PetTipServiceImpl extends DAO implements PetTipService {
 	
 	@Override
 	public List<PetTipVO> petTipSelectList() {
-		String sql = "select * from pet_tip";
+		String sql = "select * from pet_tip order by id desc";
 		List<PetTipVO> petTipList = new ArrayList<PetTipVO>();
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -26,7 +26,6 @@ public class PetTipServiceImpl extends DAO implements PetTipService {
 				vo.setId(rs.getInt("id"));
 				vo.setTitle(rs.getString("title"));
 				vo.setContent(rs.getString("content"));
-				vo.setImage(rs.getString("image"));
 				vo.setRegDate(rs.getDate("reg_date"));
 				vo.setHit(rs.getInt("hit"));
 				petTipList.add(vo);
@@ -57,7 +56,6 @@ public class PetTipServiceImpl extends DAO implements PetTipService {
 				vo.setRegDate(rs.getDate("reg_date"));
 				vo.setHit(rs.getInt("hit"));
 				vo.setContent(rs.getString("content"));
-				vo.setImage(rs.getString("image"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -70,13 +68,12 @@ public class PetTipServiceImpl extends DAO implements PetTipService {
 
 	@Override
 	public int insertPetTip(PetTipVO vo) {
-		String sql = "inset into pet_tip values(tip_seq.nextval,?,?,?,sysdate,0)";
+		String sql = "insert into pet_tip(id,title,content,reg_date) values(tip_seq.nextval,?,?,sysdate)";
 		int in = 0;
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getTitle());
 			psmt.setString(2, vo.getContent());
-			psmt.setString(3, vo.getImage());
 			
 			in = psmt.executeUpdate();
 			System.out.println(in + "건 등록완료.");
@@ -95,7 +92,6 @@ public class PetTipServiceImpl extends DAO implements PetTipService {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getTitle());
 			psmt.setString(2, vo.getContent());
-			psmt.setString(3, vo.getImage());
 			
 			up = psmt.executeUpdate();
 			System.out.println(up + "건 수정완료.");

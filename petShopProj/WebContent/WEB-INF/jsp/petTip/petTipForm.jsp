@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- 게시판 오픈소스 : ckEditor4 -->
 <script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
 <script>
@@ -20,7 +21,6 @@
 		frm.submit();
 	}
 </script>
-</head>
 <body>
 	<div align="center">
 		<div>
