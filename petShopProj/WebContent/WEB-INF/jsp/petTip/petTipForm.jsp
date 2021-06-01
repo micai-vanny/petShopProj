@@ -42,7 +42,7 @@
 					</table>
 				</div>
 				<div>
-					<button type="button" onclick="location.href='petTip.do'">돌아가기</button>
+					<button type="button" onclick="location.href='petTipListPaging.do'">돌아가기</button>
 					<button type="button" onclick="formCheck()">등록</button>
 				</div>
 			</form>

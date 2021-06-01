@@ -14,6 +14,45 @@ public class PetTipServiceImpl extends DAO implements PetTipService {
 	PreparedStatement psmt;
 	ResultSet rs;
 	
+	public List<PetTipVO> petTipListPaging(int page){
+		String sql = "select b.* \r\n" //
+				+ "from( select rownum rn, a.* \r\n" //
+				+ "      from (select * from pet_tip order by id desc)a\r\n" //
+				+ "      )b\r\n" //
+				+ "where b.rn between ? and ?";
+		
+		List<PetTipVO> petTipList = new ArrayList<PetTipVO>();
+
+		// 한 페이지 당 10건 씩 노출
+		int firstCnt, lastCnt = 0;
+		
+		firstCnt = (page - 1) * 10 + 1;
+		lastCnt = (page * 10);
+		
+		try {
+			psmt= conn.prepareStatement(sql);
+			psmt.setInt(1, firstCnt);
+			psmt.setInt(2, lastCnt);
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				PetTipVO vo = new PetTipVO();
+				vo.setId(rs.getInt("id"));
+				vo.setTitle(rs.getString("title"));
+				vo.setContent(rs.getString("content"));
+				vo.setRegDate(rs.getDate("reg_date"));
+				vo.setHit(rs.getInt("hit"));
+				petTipList.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return petTipList;
+	}
+	
 	@Override
 	public List<PetTipVO> petTipSelectList() {
 		String sql = "select * from pet_tip order by id desc";

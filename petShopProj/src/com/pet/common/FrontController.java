@@ -20,6 +20,7 @@ import com.pet.petTip.web.PetTipDelete;
 import com.pet.petTip.web.PetTipForm;
 import com.pet.petTip.web.PetTipInsert;
 import com.pet.petTip.web.PetTipList;
+import com.pet.petTip.web.PetTipListPaging;
 import com.pet.petTip.web.PetTipSelect;
 import com.pet.petTip.web.PetTipUpdate;
 import com.pet.product.web.CatProductList;
@@ -52,6 +53,7 @@ public class FrontController extends HttpServlet {
 		
 		// Pet tip
 		map.put("/petTip.do", new PetTipList());
+		map.put("/petTipListPaging.do", new PetTipListPaging());
 		map.put("/petTipSelect.do", new PetTipSelect());
 		map.put("/petTipUpdate.do", new PetTipUpdate());
 		map.put("/petTipDelete.do", new PetTipDelete());
