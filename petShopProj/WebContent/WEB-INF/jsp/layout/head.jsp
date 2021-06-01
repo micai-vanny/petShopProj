@@ -6,7 +6,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 col-sm-3 tm-site-name-container">
-				<a href="#" class="tm-site-name">상점</a>
+				<a href="#" class="tm-site-name">Dongdong-gun Market</a>
 			</div>
 			<div class="col-md-8 col-sm-9">
 				<div class="mobile-menu-icon">

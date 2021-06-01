@@ -85,14 +85,14 @@ public class PetTipServiceImpl extends DAO implements PetTipService {
 
 	@Override
 	public int updatePetTip(PetTipVO vo) {
-		String sql = "update pet_tip set title =?, content=?, image=? where id = ?";
+		String sql = "update pet_tip set title =?, content=? where id = ?";
 		int up = 0;
 		
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getTitle());
 			psmt.setString(2, vo.getContent());
-			
+			psmt.setInt(3, vo.getId());
 			up = psmt.executeUpdate();
 			System.out.println(up + "건 수정완료.");
 		} catch (SQLException e) {
@@ -103,8 +103,20 @@ public class PetTipServiceImpl extends DAO implements PetTipService {
 
 	@Override
 	public int deletePetTip(PetTipVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "delete from pet_tip where id = ?";
+		int del = 0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getId());
+			
+			del = psmt.executeUpdate();
+			System.out.println(del+"건 삭제완료.");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return del;
 	}
 	
 	// 닫아주기

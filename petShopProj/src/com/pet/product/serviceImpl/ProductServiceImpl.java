@@ -98,8 +98,28 @@ public class ProductServiceImpl extends DAO implements ProductService {
 	
 	@Override
 	public ProductVO dogProductSelect(ProductVO vo) {
-		// 상품 상세보기
-		return null;
+		// 강아지 용품 상세보기
+		String sql = "select * from product where item_code=?";
+		try {
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, vo.getItemCode());
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				vo.setItemImage(rs.getString("item_image"));
+				vo.setItemName(rs.getString("item_name"));
+				vo.setLikeIt(rs.getInt("like_it"));
+				vo.setPrice(rs.getInt("price"));
+				vo.setSale(rs.getString("sale"));
+				vo.setSalePrice(rs.getInt("sale_price"));
+				vo.setItemDesc(rs.getString("item_desc"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return vo;
 	}
 
 	@Override

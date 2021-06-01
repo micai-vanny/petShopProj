@@ -2,6 +2,16 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<script>
+	function formSubmit(itemCode) {
+		frm.itemCode.value = itemCode;
+		frm.submit();
+	}
+</script>
+<form id="frm" action="catProductSelect.do" method="post">
+	<input type="hidden" id="itemCode" name="itemCode">
+</form>
 <section class="py-5">
 	<div class="container px-4 px-lg-5 mt-5">
 		<div
@@ -41,7 +51,8 @@
 								style="top: 0.5rem; right: 0.5rem">Sale</div>
 						</c:if>
 						<!-- Product image-->
-						<img class="card-img-top" src="upload/${vo.itemImage }" alt="..." />
+						<img class="card-img-top" src="upload/${vo.itemImage }" 
+							alt="상품이미지" onclick="formSubmit('${vo.itemCode}')" />
 						<!-- Product details-->
 						<div class="card-body p-4">
 							<div class="text-center">
@@ -82,6 +93,11 @@
 				</div>
 			</c:forEach>
 		</div>
+	</div>
+	<div>
+		<c:if test="${id eq 'admin' }">
+			<button type="button" onclick="location.href='catProductInsert.do'">상품업로드</button>
+		</c:if>
 	</div>
 </section>
 <script>
