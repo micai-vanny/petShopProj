@@ -12,6 +12,14 @@ public class BoardVO {
 	private String image;
 	private Date date;
 	private int appraisal;
+	private String itemcode;
+	
+	public String getItemcode() {
+		return itemcode;
+	}
+	public void setItemcode(String itemcode) {
+		this.itemcode = itemcode;
+	}
 	public int getBoardid() {
 		return boardid;
 	}
