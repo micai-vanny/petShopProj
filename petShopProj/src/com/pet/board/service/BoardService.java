@@ -11,6 +11,6 @@ public interface BoardService {
 	public int insertBoard(BoardVO vo);
 	public int updateBoard(BoardVO vo);
 	public int deleteBoard(BoardVO vo);
-	List<BoardVO> selectBoardList(BoardVO vo);
+	List<BoardVO> selectBoardList(BoardVO bvo);
 	
 }

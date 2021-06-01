@@ -19,15 +19,16 @@ public class BoardServiceImpl extends DAO implements BoardService{
 	// 리뷰게시글 전체리스트 
 	
 	@Override
-	public List<BoardVO> selectBoardList(BoardVO vo) {
+	public List<BoardVO> selectBoardList(BoardVO bvo) {
 		List<BoardVO> list = new ArrayList<>();
-		String sql = "select a.*,b.* item_code from review a, product b "
-				+ "where a.item_code = b.item_code and a.item_code = ?;";
+		String sql = "select * from review where item_Code = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, vo.getItemcode());
+			psmt.setString(1, bvo.getItemcode());
+			System.out.println(bvo.getItemcode());
+			rs = psmt.executeQuery();
 			while(rs.next()) {
-				vo = new BoardVO();
+				BoardVO vo = new BoardVO();
 				vo.setBoardid(rs.getInt("board_id"));
 				vo.setUserId(rs.getString("user_id"));
 				vo.setUserName(rs.getString("user_name"));
@@ -38,9 +39,9 @@ public class BoardServiceImpl extends DAO implements BoardService{
 				vo.setAppraisal(rs.getInt("appraisal"));
 				vo.setItemcode(rs.getString("item_code"));
 				list.add(vo);
+				System.out.println(vo.getAppraisal() + vo.getBoardid());
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close();

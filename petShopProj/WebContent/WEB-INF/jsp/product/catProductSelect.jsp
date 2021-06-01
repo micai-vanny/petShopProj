@@ -47,7 +47,13 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-				여기엔 리뷰가 들어갈 예정
+				<c:forEach items="${list }" var="vo">
+				${vo.userName }
+				${vo.title }
+				${vo.content }
+				${vo.date }
+				${vo.appraisal }
+				</c:forEach>
 			</td>
 		</tr>
 	</table>
