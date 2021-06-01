@@ -53,7 +53,7 @@
 						</c:if>
 						<!-- Product image-->
 						<img class="card-img-top" src="upload/${vo.itemImage }"
-							alt="상품이미지" onclick="formSubmit('${vo.itemCode}')">
+							alt="상품이미지" onclick="location.href='catProductSelect.do?itemCode=${vo.itemCode}'">
 						<!-- Product details-->
 						<div class="card-body p-4">
 							<div class="text-center">

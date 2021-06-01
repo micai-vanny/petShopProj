@@ -19,11 +19,14 @@ public class BoardServiceImpl extends DAO implements BoardService{
 	// 리뷰게시글 전체리스트 
 	
 	@Override
-	public List<BoardVO> selectBoardList() {
+	public List<BoardVO> selectBoardList(BoardVO bvo) {
 		List<BoardVO> list = new ArrayList<>();
-		String sql = "select * from review";
+		String sql = "select * from review where item_Code = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, bvo.getItemcode());
+			System.out.println(bvo.getItemcode());
+			rs = psmt.executeQuery();
 			while(rs.next()) {
 				BoardVO vo = new BoardVO();
 				vo.setBoardid(rs.getInt("board_id"));
@@ -34,10 +37,11 @@ public class BoardServiceImpl extends DAO implements BoardService{
 				vo.setDate(rs.getDate("reg_date"));
 				vo.setImage(rs.getString("image"));
 				vo.setAppraisal(rs.getInt("appraisal"));
+				vo.setItemcode(rs.getString("item_code"));
 				list.add(vo);
+				System.out.println(vo.getAppraisal() + vo.getBoardid());
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close();
@@ -47,7 +51,7 @@ public class BoardServiceImpl extends DAO implements BoardService{
 
 	@Override
 	public int insertBoard(BoardVO vo) {
-		String sql = "insert into review values(review_seq.nextval,?,?,?,?,?,sysdate,?)";
+		String sql = "insert into review values(review_seq.nextval,?,?,?,?,?,sysdate,?,?)";
 		int insert = 0;
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -57,6 +61,7 @@ public class BoardServiceImpl extends DAO implements BoardService{
 			psmt.setInt(4, vo.getAppraisal());
 			psmt.setString(5, vo.getImage());
 			psmt.setString(6,vo.getUserId());
+			psmt.setString(7,vo.getItemcode());
 			
 			insert = psmt.executeUpdate();
 		} catch (SQLException e) {

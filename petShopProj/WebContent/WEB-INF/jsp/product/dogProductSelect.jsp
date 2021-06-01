@@ -47,7 +47,7 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-				여기엔 리뷰가 들어갈 예정
+				
 			</td>
 		</tr>
 	</table>
