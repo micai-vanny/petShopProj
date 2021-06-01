@@ -14,10 +14,33 @@ public class MemberServiceImpl extends DAO implements MemberService {
 	PreparedStatement psmt;
 	ResultSet rs;
 	
-	
+	//id,password 체크 Login
+	public MemberVO loginCheck(MemberVO vo) {
+		String sql = "select * from member where user_id = ? and passwd = ?";
+		MemberVO mvo = null;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getId());
+			psmt.setString(2, vo.getPassword());
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				mvo = new MemberVO();
+				mvo.setName(rs.getString("user_name"));
+				mvo.setId(rs.getString("user_id"));
+				mvo.setPassword(rs.getString("passwd"));
+				mvo.setAddress(rs.getString("address"));
+				mvo.setEmail(rs.getString("email"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return mvo;
+	}
 	//Id 중복체크
 	public boolean idCheck(String id) {
-		System.out.println(id);
 		String sql = "select user_id from member where user_id = ?";
 		boolean idCheck = false;
 		try {
