@@ -16,6 +16,7 @@ import com.pet.member.web.MemberLogOut;
 import com.pet.member.web.MemberLogin;
 import com.pet.member.web.MemberLoginForm;
 import com.pet.member.web.MemberMenu;
+import com.pet.member.web.MemberWithdrawal;
 import com.pet.petTip.web.PetTipDelete;
 import com.pet.petTip.web.PetTipForm;
 import com.pet.petTip.web.PetTipInsert;
@@ -46,6 +47,9 @@ public class FrontController extends HttpServlet {
 		map.put("/memberLogin.do", new MemberLogin());
 		map.put("/memberLogOut.do", new MemberLogOut());
 		map.put("/memberMenu.do", new MemberMenu());
+		
+		//회원탈퇴
+		map.put("/memberWithdrawal.do", new MemberWithdrawal());
 		
 		// 강아지 상품페이지
 		map.put("/dogProductList.do", new DogProductList());

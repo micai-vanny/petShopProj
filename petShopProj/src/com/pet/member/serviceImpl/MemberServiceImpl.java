@@ -103,8 +103,20 @@ public class MemberServiceImpl extends DAO implements MemberService {
 	
 	@Override
 	public int deleteMember(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "delete from member where user_id=?";
+		int delete = 0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getId());
+			
+			delete = psmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return delete;
 	}
 	public void close() {
 		
