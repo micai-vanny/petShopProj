@@ -46,6 +46,8 @@
 			</td>
 		</tr>
 		<tr>
+		<c:choose>
+		</c:choose>
 			<td colspan="2" align="center">
 				<c:forEach items="${list }" var="vo">
 				${vo.userName }
