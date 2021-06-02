@@ -2,7 +2,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<div align="center" style="width:80%">
+<div align="center" style="width:80%; padding: 10px">
 	<table border="1">
 		<tr>
 			<td style="width:20%">
@@ -46,8 +46,6 @@
 			</td>
 		</tr>
 		<tr>
-		<c:choose>
-		</c:choose>
 			<td colspan="2" align="center">
 				<c:forEach items="${list }" var="vo">
 				${vo.userName }
