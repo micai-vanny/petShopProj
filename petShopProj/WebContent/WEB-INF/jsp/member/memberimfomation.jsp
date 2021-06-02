@@ -15,20 +15,20 @@
 	</tr>
 	<tr>
 	<th>주소  </th>
-	<td>${vo.address }</td>
+	<td><input type="text" id ="email" name = "email" value="${vo.address }" ></td>
 	</tr>
 	<tr>
 	<th>이메일  </th>
-	<td>${vo.email }</td>
+	<td><input type="text" id="email" name="email" value="${vo.email }"></td>
 	</tr>
 	<tr>
-	<th>비밀번호  </th>
-	<td>${vo.password }</td>
+	<th>비밀번호 변경 </th>
+	<td><button type="button" onclick="location.href=''">변경하러가기</button></td>
 	</tr>
 </table>
 
-<input type="button" onclick="" value="수정">
-<input type="button" onclick="" value="돌아가기">
+<input type="submit" onclick="location.href=''" value="수정">
+<input type="button" onclick="location.href='index.do'" value="돌아가기">
 </form>
 
 </div>
