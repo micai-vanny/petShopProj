@@ -65,9 +65,27 @@ public class MemberServiceImpl extends DAO implements MemberService {
 	}
 	
 	@Override
-	public MemberVO selectMember() {
-		// TODO Auto-generated method stub
-		return null;
+	public MemberVO selectMember(String id) {
+		String sql = "select * from member where user_id=?";
+		MemberVO vo = new MemberVO();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				vo.setId(rs.getString("user_id"));
+				vo.setName(rs.getString("user_name"));
+				vo.setAddress(rs.getString("address"));
+				vo.setEmail(rs.getString("email"));
+				vo.setPassword(rs.getString("passwd"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return vo;
 	}
 	
 	@Override
@@ -96,9 +114,24 @@ public class MemberServiceImpl extends DAO implements MemberService {
 	}
 	
 	@Override
-	public int updateMember(MemberVO vo) {
+	public int updateMember(String id) {
+		String sql = "update member set email = ?, address = ? where user_id = ? ";
 		// TODO Auto-generated method stub
-		return 0;
+		MemberVO vo = new MemberVO();
+		int update = 0;
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getEmail());
+			psmt.setString(2, vo.getAddress());
+			psmt.setString(3, vo.getId());
+			
+			update = psmt.executeUpdate();
+			System.out.println(update + "건 수정완료");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return update;
 	}
 	
 	@Override
