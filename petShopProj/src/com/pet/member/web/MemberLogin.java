@@ -32,6 +32,7 @@ public class MemberLogin implements DbCommand {
 		} else {
 			// 받아온 ID/PASSWORD 값을 받아왔을때 (성공)
 			session.setAttribute("id", mvo.getId());
+			session.setAttribute("name", mvo.getName());
 			request.setAttribute("vo", mvo);
 			path = "member/memberLoginSuccess.tiles";
 			
