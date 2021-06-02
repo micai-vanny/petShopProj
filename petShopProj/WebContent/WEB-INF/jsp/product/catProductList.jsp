@@ -95,9 +95,9 @@
 			</c:forEach>
 		</div>
 	</div>
-	<div>
+	<div class="container px-4 px-lg-5 mt-5">
 		<c:if test="${id eq 'admin' }">
-			<button type="button" onclick="location.href='catProductInsert.do'">상품업로드</button>
+			<button type="button" onclick="location.href='catProdForm.do'">상품업로드</button>
 		</c:if>
 	</div>
 </section>

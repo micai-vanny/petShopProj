@@ -28,7 +28,7 @@ public class PetTipInsert implements DbCommand {
 		String path = "";
 		
 		if(in > 0) {
-			path = "/petTip.do";
+			path = "/petTipListPaging.do";
 		} else {
 			PrintWriter script;
 			try {

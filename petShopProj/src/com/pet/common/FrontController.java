@@ -23,8 +23,12 @@ import com.pet.petTip.web.PetTipList;
 import com.pet.petTip.web.PetTipListPaging;
 import com.pet.petTip.web.PetTipSelect;
 import com.pet.petTip.web.PetTipUpdate;
+import com.pet.product.web.CatProductInsert;
 import com.pet.product.web.CatProductList;
 import com.pet.product.web.CatProductSelect;
+import com.pet.product.web.DogProdForm;
+import com.pet.product.web.DogProductInsert;
+import com.pet.product.web.CatProdForm;
 import com.pet.product.web.DogProductList;
 import com.pet.product.web.DogProductSelect;
 
@@ -46,10 +50,14 @@ public class FrontController extends HttpServlet {
 		// 강아지 상품페이지
 		map.put("/dogProductList.do", new DogProductList());
 		map.put("/dogProductSelect.do", new DogProductSelect());
+		map.put("/dogProdForm.do", new DogProdForm());
+		map.put("/dogProductInsert.do", new DogProductInsert());
 		
 		// 고양이 상품페이지
 		map.put("/catProductList.do", new CatProductList());
 		map.put("/catProductSelect.do", new CatProductSelect());
+		map.put("/catProdForm.do", new CatProdForm());
+		map.put("/catProductInsert.do",new CatProductInsert());
 		
 		// Pet tip
 		map.put("/petTip.do", new PetTipList());
