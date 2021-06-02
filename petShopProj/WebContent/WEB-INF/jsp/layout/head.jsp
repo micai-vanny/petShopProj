@@ -6,7 +6,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 col-sm-3 tm-site-name-container">
-				<a href="#" class="tm-site-name">Dongdong-gun Market</a>
+				<a href="index.do" class="tm-site-name">TOMCAT Market</a>
 			</div>
 			<div class="col-md-8 col-sm-9">
 				<div class="mobile-menu-icon">
@@ -17,7 +17,7 @@
 						<li><a href="index.do" class="active">HOME</a></li>
 						<li><a href="dogProductList.do">DOG</a></li>
 						<li><a href="catProductList.do">CAT</a></li>
-						<li><a href="petTip.do">PET Tips</a></li>
+						<li><a href="petTipListPaging.do">PET Tips</a></li>
 
 						<c:choose>
 							<c:when test="${!empty id }">

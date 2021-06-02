@@ -22,7 +22,7 @@ public class PetTipDelete implements DbCommand {
 		
 		request.setAttribute("petTip", vo);
 		
-		return "petTip.do";
+		return "petTipListPaging.do";
 	}
 
 }

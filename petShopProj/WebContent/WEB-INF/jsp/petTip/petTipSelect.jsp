@@ -14,18 +14,21 @@
 	})
 </script>
 <div align="center">
-	<h3>Pet Tips!</h3>
+	<div style="padding: 20px">
+		<h2>Pet Tips!</h2>
+	</div>
 	<form id="frm" action="petTipUpdate.do" method="post">
 		<input type="hidden" name="id" value="${petTip.id }">
-		<table border="1">
-			<tr>
-				<th>no.</th><td id="id">${petTip.id }</td>
-				<th>작성일자</th><td>${petTip.regDate }</td>
-				<th>조회수</th><td>${petTip.hit }</td>
+		<table style="width:80%; border-bottom: 3px solid black">
+			<tr style="border-top: 3px solid black">
+				<th style="text-align: center; width: 30px; padding-top: 10px; padding-bottom: 10px">no.</th>
+				<td id="id" style="text-align: center; width: 30px; border-right: 1px solid black; padding-top: 10px; padding-bottom: 10px">${petTip.id }</td>
+				<th style="text-align: center; width: 80px; padding: 10px">작성일자</th><td align="left">${petTip.regDate }</td>
+				<th style="text-align: right">조회수</th><td align="center">${petTip.hit }</td>
 			</tr>
-			<tr>
-				<th>제목</th>
-				<td colspan="5">
+			<tr style="border-top: 1px solid black">
+				<th colspan="2" style="text-align: center; padding-top: 10px; padding-bottom: 10px; border-right: 1px solid black">제목</th>
+				<td colspan="4" align="center">
 					<c:choose>
 					<c:when test="${id eq 'admin' }">
 						<input id="title" name="title" type="text" value="${petTip.title }">
@@ -36,24 +39,28 @@
 					</c:choose>
 				</td>
 			</tr>
-			<tr>
-				<th>내용</th>
+			<tr style="border-top: 1px solid black">
+				<th colspan="2" style="text-align: center; border-right: 1px solid black">내용</th>
 				<c:choose>
 					<c:when test="${id eq 'admin' }">
-						<td colspan="5"><textarea id="content" name="content" rows="6" cols="90">${petTip.content }</textarea></td>
+						<td colspan="4" align="center"><textarea id="content" name="content" rows="6" cols="90">${petTip.content }</textarea></td>
 					</c:when>
 					<c:otherwise>
+						<td colspan="4" style="text-align: center; padding: 10px">
 						${petTip.content }
+						</td>
 					</c:otherwise>
 				</c:choose>
 			</tr>
 		</table>
-		<div>
-			<button type="button" onclick="location.href='petTip.do'">돌아가기</button>
+		<br>
+		<div style="width: 80%; text-align: right">
+			<button type="button" onclick="location.href='petTipListPaging.do'">돌아가기</button>
 			<c:if test="${id eq 'admin' }">
 				<button type="submit">수정하기</button>
 				<button type="button" onclick="location.href='petTipDelete.do?id=${petTip.id}'">삭제하기</button>
 			</c:if>
 		</div>
+		<br>
 	</form>
 </div>

@@ -13,23 +13,25 @@
 		<input type="hidden" id="id" name="id">
 	</form>
 	<div align = "center">
-		<h3>Pet Tips!</h3>
+		<div style="padding: 20px">
+			<h2>Pet Tips!</h2>
+		</div>
 		<div style="width:80%">
 		<table class="table" border="1">
 			<tr>
-				<th width="20">no.</th>
-				<th width="200">제목</th>
-				<th width="30">작성일자</th>
-				<th width="20">조회수</th>
+				<th style="width: 30px; text-align: center">no.</th>
+				<th style="text-align: center">제목</th>
+				<th style="width: 120px; text-align: center">작성일자</th>
+				<th style="width: 100px; text-align: center">조회수</th>
 			</tr>
 			<c:choose>
 				<c:when test="${!empty list }">
 					<c:forEach items="${list }" var="vo">
 						<tr onclick="formSubmit(${vo.id })">
-							<td>${vo.id }</td>
-							<td>${vo.title }</td>
-							<td>${vo.regDate }</td>
-							<td>${vo.hit }</td>
+							<td style="text-align: center">${vo.id }</td>
+							<td style="text-align: center">${vo.title }</td>
+							<td style="text-align: center">${vo.regDate }</td>
+							<td style="text-align: center">${vo.hit }</td>
 						</tr>
 					</c:forEach>
 				</c:when>
@@ -43,7 +45,7 @@
 			</c:choose>
 		</table>
 		</div>
-		<div>
+		<div style="width: 80%; text-align: right; padding: 20px">
 			<button type="button" onclick="location.href='index.do'">홈으로</button>
 			<c:if test="${id eq 'admin' }">
 				<button type="button" onclick="location.href='petTipForm.do'">글쓰기</button>
