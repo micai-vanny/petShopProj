@@ -80,6 +80,7 @@ public class ProductServiceImpl extends DAO implements ProductService {
 			rs=psmt.executeQuery();
 			
 			if(rs.next()) {
+				vo.setItemCode(rs.getString("item_code"));
 				vo.setItemImage(rs.getString("item_image"));
 				vo.setItemName(rs.getString("item_name"));
 				vo.setLikeIt(rs.getInt("like_it"));

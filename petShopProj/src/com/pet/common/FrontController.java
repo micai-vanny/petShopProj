@@ -32,6 +32,7 @@ import com.pet.product.web.CatProductSelect;
 import com.pet.product.web.DogProdForm;
 import com.pet.product.web.DogProductInsert;
 import com.pet.product.web.CatProdForm;
+import com.pet.product.web.CatProdUpdate;
 import com.pet.product.web.DogProductList;
 import com.pet.product.web.DogProductSelect;
 
@@ -66,6 +67,7 @@ public class FrontController extends HttpServlet {
 		map.put("/catProductSelect.do", new CatProductSelect());
 		map.put("/catProdForm.do", new CatProdForm());
 		map.put("/catProductInsert.do",new CatProductInsert());
+		map.put("/catProdUpdate.do", new CatProdUpdate());
 		
 		// Pet tip
 		map.put("/petTip.do", new PetTipList());
