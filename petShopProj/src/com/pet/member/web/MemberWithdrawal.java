@@ -15,7 +15,6 @@ public class MemberWithdrawal implements DbCommand {
 		HttpSession session = request.getSession();
 		
 		String userId = request.getParameter("id");
-		System.out.println(userId);
 		MemberVO vo = new MemberVO();
 		
 		vo.setId(userId);

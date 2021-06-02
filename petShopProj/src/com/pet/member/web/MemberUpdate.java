@@ -13,17 +13,18 @@ public class MemberUpdate implements DbCommand {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		String email = request.getParameter("email");
 		String adr = request.getParameter("address");
-		
+		String id = request.getParameter("id");
+
 		MemberVO vo = new MemberVO();
 		MemberServiceImpl service = new MemberServiceImpl();
 		
 		vo.setEmail(email);
 		vo.setAddress(adr);
+		vo.setId(id);
 		
+		service.updateMember(vo);
 		
-		
-		
-		return null;
+		return "member/memberMenu.tiles";
 	}
 
 }

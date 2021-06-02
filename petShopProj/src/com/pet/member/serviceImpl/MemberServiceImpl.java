@@ -114,10 +114,9 @@ public class MemberServiceImpl extends DAO implements MemberService {
 	}
 	
 	@Override
-	public int updateMember(String id) {
+	public int updateMember(MemberVO vo) {
 		String sql = "update member set email = ?, address = ? where user_id = ? ";
 		// TODO Auto-generated method stub
-		MemberVO vo = new MemberVO();
 		int update = 0;
 		
 		try {
@@ -127,7 +126,6 @@ public class MemberServiceImpl extends DAO implements MemberService {
 			psmt.setString(3, vo.getId());
 			
 			update = psmt.executeUpdate();
-			System.out.println(update + "건 수정완료");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
