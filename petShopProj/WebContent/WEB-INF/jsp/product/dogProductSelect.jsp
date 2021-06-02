@@ -6,7 +6,7 @@
 	<table border="1">
 		<tr>
 			<td style="width:20%">
-				<button onclick="location.href='dogProductList.do'">돌아가기</button>
+				<button type="button" onclick="location.href='dogProductList.do'">돌아가기</button>
 			</td>
 			<td style="width:80%" align="center">
 				제품 상세 정보

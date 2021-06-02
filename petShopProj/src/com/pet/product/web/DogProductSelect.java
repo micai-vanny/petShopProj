@@ -20,7 +20,7 @@ public class DogProductSelect implements DbCommand {
 		ProductService service = new ProductServiceImpl();
 		service.dogProductSelect(vo);
 		
-		request.setAttribute("dagProd", vo);
+		request.setAttribute("dogProd", vo);
 		
 		return "product/dogProductSelect.tiles";
 	}

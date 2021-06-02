@@ -9,7 +9,7 @@
 		frm.submit();
 	}
 </script>
-<form id="frm" action="catProductSelect.do" method="post">
+<form id="frm" action="dogProductSelect.do" method="post">
 	<input type="hidden" id="itemCode" name="itemCode">
 </form>
 <section class="py-5">
@@ -94,9 +94,9 @@
 			</c:forEach>
 		</div>
 	</div>
-	<div>
+	<div class="container px-4 px-lg-5 mt-5">
 		<c:if test="${id eq 'admin' }">
-			<button type="button" onclick="location.href='catProductInsert.do'">상품업로드</button>
+			<button type="button" onclick="location.href='dogProdForm.do'">상품업로드</button>
 		</c:if>
 	</div>
 </section>
