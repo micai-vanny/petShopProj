@@ -3,7 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div align="center">
-<form action="">
+<form action="memberUpdate.do" method ="post">
+<input type="hidden" id="id" name="id" value="${id }">
 <table border="1">
 	<tr>
 	<th>아이디  </th>
@@ -15,7 +16,7 @@
 	</tr>
 	<tr>
 	<th>주소  </th>
-	<td><input type="text" id ="email" name = "email" value="${vo.address }" ></td>
+	<td><input type="text" id ="address" name = "address" value="${vo.address }" ></td>
 	</tr>
 	<tr>
 	<th>이메일  </th>
@@ -27,7 +28,7 @@
 	</tr>
 </table>
 
-<input type="submit" onclick="location.href=''" value="수정">
+<input type="submit" onclick="location.href='memberUpdate.do'" value="수정">
 <input type="button" onclick="location.href='index.do'" value="돌아가기">
 </form>
 

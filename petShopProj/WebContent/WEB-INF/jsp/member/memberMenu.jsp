@@ -47,27 +47,31 @@
 <div class="bigdiv">
 	<div class="middlediv">
 		<div class="column">
-		<div style="clear:both;">
-
-			<div class="so_group">
+			<div style="clear: both;">
 				<c:if test="${id != 'admin' }">
-					<p>${name } 님</p>
-					<br>
-					<button type="button" onclick="location.href='memberimfomation.do?id=${id }'">회원정보</button>
+					<div class="so_group">
+
+						<p>${name }님</p>
+						<br>
+						<button type="button"
+							onclick="location.href='memberimfomation.do?id=${id }'">회원정보</button>
+
+					</div>
+				</c:if>
+				<c:if test="${id != 'admin' }">
+					<div class="so_group">
+
+						<button type="button" onclick="sconfirm('${id}')">회원탈퇴</button>
+
+					</div>
+				
+				<div class="so_group2">
+					<p>상품장바구니sadsadfㅣㅏㄴㅇ러ㅟㅏ런ㅁㅇ리ㅏㅓㄴ어리ㅏ넘ㅇ리ㅏㄴ머리;ㅁ넝리;ㅇ너린ㅁㅇ러ㅣㄴ리나얼ㅇ니ㅏ런미아ㅓㄴㅁ리;ㅏ엄ㄴ;ㅣㅏ너ㅣㅏ널;ㅣㄹ너니;ㅏ런;ㅣㅏㅓㅣ;ㅏㅓㅁ니;너ㅣㅏㅓ미;니ㅏㅓ
+
+						ㅣㅏ;ㅓ리나ㅓsdfasdfㄹ</p>
+				</div>
 				</c:if>
 			</div>
-			<div class="so_group">
-				<c:if test="${id != 'admin' }">
-					<button type="button" onclick="sconfirm('${id}')">회원탈퇴</button>
-				</c:if>
-			</div>
-		
-		<div class="so_group2">
-			<p>상품장바구니sadsadfㅣㅏㄴㅇ러ㅟㅏ런ㅁㅇ리ㅏㅓㄴ어리ㅏ넘ㅇ리ㅏㄴ머리;ㅁ넝리;ㅇ너린ㅁㅇ러ㅣㄴ리나얼ㅇ니ㅏ런미아ㅓㄴㅁ리;ㅏ엄ㄴ;ㅣㅏ너ㅣㅏ널;ㅣㄹ너니;ㅏ런;ㅣㅏㅓㅣ;ㅏㅓㅁ니;너ㅣㅏㅓ미;니ㅏㅓ
-
-				ㅣㅏ;ㅓ리나ㅓㄹ</p>
-				</div>
-				</div>
 		</div>
 	</div>
 </div>

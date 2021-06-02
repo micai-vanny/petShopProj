@@ -14,7 +14,6 @@ public class Memberimfomation implements DbCommand {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 
 		String id = request.getParameter("id");
-		System.out.println(id);
 		MemberVO vo = new MemberVO();
 		MemberServiceImpl Service = new MemberServiceImpl();
 		

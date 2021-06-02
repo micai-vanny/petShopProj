@@ -9,7 +9,7 @@ public interface MemberService {
 	List<MemberVO>  selectMemberList();
 	MemberVO selectMember(String id);
 	public int insertMember(MemberVO vo);
-	public int updateMember(String id);
+	public int updateMember(MemberVO vo);
 	public int deleteMember(MemberVO vo);
 	
 }
