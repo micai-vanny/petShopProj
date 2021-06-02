@@ -56,7 +56,7 @@
 	}
 </style>
 <div class="wrap">
-	<form id="frm" action="" method="post" enctype='multipart/form-data'>
+	<form id="frm" action="catProdUpdate.do" method="post" enctype='multipart/form-data'>
 		<input type="hidden" id="itemCode" name="itemCode" value="${catProd.itemCode }">
 		<div class="top_btn">
 			<button type="button" onclick="location.href='catProductList.do'">돌아가기</button>

@@ -29,17 +29,12 @@ public class CatProductInsert implements DbCommand {
 		path = sc.getRealPath("upload"); // 서버 상의 경로
 
 		System.out.println("hhhh: " + path);
-		String name = "";
-		String subject = "";
 		String fileName = "";
 
 		MultipartRequest multi = null;
 
 		try {
 			multi = new MultipartRequest(request, path, size, "utf-8", new DefaultFileRenamePolicy());
-
-			name = multi.getParameter("name");
-			subject = multi.getParameter("subject");
 
 			Enumeration files = multi.getFileNames();
 			// item image가 input type file로 넘어오기 때문에 여기서 함 처리해줌.
