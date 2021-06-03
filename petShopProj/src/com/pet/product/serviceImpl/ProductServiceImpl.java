@@ -197,7 +197,7 @@ public class ProductServiceImpl extends DAO implements ProductService {
 	
 	// Cart에 상품 넣기
 	public void addCart(String id, String itemCode, int qty) {
-		String sql = "insert into cart values(?,?,?)";
+		String sql = "insert into cart(user_id,item_code,item_qty) values(?,?,?)";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -266,7 +266,7 @@ public class ProductServiceImpl extends DAO implements ProductService {
 			}// 카트에 담긴 갯수를 리턴.
 			return rCnt;
 		}
-	
+			
 	
 	// 닫아주기
 	private void close() {
