@@ -9,13 +9,56 @@ import java.util.List;
 import com.pet.board.service.BoardService;
 import com.pet.board.vo.BoardVO;
 import com.pet.common.DAO;
+import com.pet.petTip.vo.PetTipVO;
 
 public class BoardServiceImpl extends DAO implements BoardService{
 
 	PreparedStatement psmt;
 	ResultSet rs;
 	
-	
+	//리뷰 게시판 페이징
+	public List<BoardVO> boardPaging(int page){
+		String sql = "select b.* \r\n" //
+				+ "from( select rownum rn, a.* \r\n" //
+				+ "      from (select * from review order by board_id desc)a\r\n" //
+				+ "      )b\r\n" //
+				+ "where b.rn between ? and ?";
+		
+		List<BoardVO> List = new ArrayList<BoardVO>();
+
+		// 한 페이지 당 10건 씩 노출
+		int firstCnt, lastCnt = 0;
+		
+		firstCnt = (page - 1) * 10 + 1;
+		lastCnt = (page * 10);
+		
+		try {
+			psmt= conn.prepareStatement(sql);
+			psmt.setInt(1, firstCnt);
+			psmt.setInt(2, lastCnt);
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				BoardVO vo = new BoardVO();
+				vo.setBoardid(rs.getInt("board_id"));
+				vo.setUserId(rs.getString("user_id"));
+				vo.setUserName(rs.getString("user_name"));
+				vo.setTitle(rs.getString("title"));
+				vo.setContent(rs.getString("content"));
+				vo.setDate(rs.getDate("reg_date"));
+				vo.setImage(rs.getString("image"));
+				vo.setAppraisal(rs.getInt("appraisal"));
+				vo.setItemcode(rs.getString("item_code"));
+				List.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return List;
+	}
 	// 리뷰게시글 전체리스트 
 	
 	@Override
