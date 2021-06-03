@@ -43,7 +43,6 @@ public class CatProductSelect implements DbCommand {
 		paging.setPageNo(pageCnt);
 		paging.setPageSize(5);
 		paging.setTotalCount(total.size());
-		System.out.println(paging);
 		
 		request.setAttribute("catProd", vo);
 		request.setAttribute("list", list);
