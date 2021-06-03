@@ -29,8 +29,8 @@ public class BoardServiceImpl extends DAO implements BoardService{
 		// 한 페이지 당 10건 씩 노출
 		int firstCnt, lastCnt = 0;
 		
-		firstCnt = (page - 1) * 10 + 1;
-		lastCnt = (page * 10);
+		firstCnt = (page - 1) * 5 + 1;
+		lastCnt = (page * 5);
 		
 		try {
 			psmt= conn.prepareStatement(sql);
