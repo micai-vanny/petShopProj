@@ -13,6 +13,7 @@ public class ProductVO {
 	private String userId;
 	private int itemQty;
 	private int stock;
+	private int shipping;
 	
 	public String getUserId() {
 		return userId;
@@ -91,6 +92,12 @@ public class ProductVO {
 		return "ProductVO [divCode=" + divCode + ", itemCode=" + itemCode + ", itemName=" + itemName + ", itemImage="
 				+ itemImage + ", itemDesc=" + itemDesc + ", price=" + price + ", likeIt=" + likeIt + ", sale=" + sale
 				+ ", salePrice=" + salePrice + ", userId=" + userId + ", itemQty=" + itemQty + ", stock=" + stock + "]";
+	}
+	public int getShipping() {
+		return shipping;
+	}
+	public void setShipping(int shipping) {
+		this.shipping = shipping;
 	}
 	
 }
