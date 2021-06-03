@@ -112,7 +112,7 @@
 			},
 			success : function(result) {
 				console.log(result);
-				location.href = 'productList.do';
+				location.href = 'catProductList.do';
 			},
 			error : function(reject) {
 				console.log(reject);
