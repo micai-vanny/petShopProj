@@ -24,7 +24,7 @@ public class MemberJoin implements DbCommand {
 		String adr4 = request.getParameter("extraAddress");
 		
 		String totaladr = "(" + adr1 + ")" +adr2+adr3+adr4;
-		
+		//
 		MemberVO vo = new MemberVO();
 		vo.setId(id);
 		vo.setName(name);
