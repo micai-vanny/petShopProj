@@ -8,7 +8,7 @@
 	}
 	
 	function goPage(page) {
-		location.href = "noticeListPaging.do?page=" + page;
+		location.href = "petTipListPaging.do?page=" + page;
 	}
 </script>
 
