@@ -176,8 +176,20 @@ public class ProductServiceImpl extends DAO implements ProductService {
 
 	@Override
 	public int deleteProduct(ProductVO vo) {
-		// 상품 삭제
-		return 0;
+		String sql = "delete from product where item_code=?";
+		int del = 0;
+		try {
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, vo.getItemCode());
+			
+			del=psmt.executeUpdate();
+			System.out.println(del+"건 삭제완료.");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return del;
 	}
 	
 	// Cart Info Start
