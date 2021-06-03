@@ -17,10 +17,11 @@ public class BoardServiceImpl extends DAO implements BoardService{
 	ResultSet rs;
 	
 	//리뷰 게시판 페이징
-	public List<BoardVO> boardPaging(int page){
+	public List<BoardVO> boardPaging(int page,String itemCode){
+		
 		String sql = "select b.* \r\n" //
 				+ "from( select rownum rn, a.* \r\n" //
-				+ "      from (select * from review order by board_id desc)a\r\n" //
+				+ "      from (select * from review where item_code = ? order by board_id desc)a\r\n" //
 				+ "      )b\r\n" //
 				+ "where b.rn between ? and ?";
 		
@@ -34,8 +35,9 @@ public class BoardServiceImpl extends DAO implements BoardService{
 		
 		try {
 			psmt= conn.prepareStatement(sql);
-			psmt.setInt(1, firstCnt);
-			psmt.setInt(2, lastCnt);
+			psmt.setString(1, itemCode);
+			psmt.setInt(2, firstCnt);
+			psmt.setInt(3, lastCnt);
 			
 			rs = psmt.executeQuery();
 			

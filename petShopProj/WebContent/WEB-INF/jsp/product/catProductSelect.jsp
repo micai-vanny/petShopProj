@@ -27,7 +27,7 @@
 		frm.submit();
 	}
 	function goPage(page) {
-		location.href = "noticeListPaging.do?page=" + page;
+		location.href = "catProductSelect.do?page=" + page + "&itemCode=${catProd.itemCode}";
 	}
 </script>
 <style>
@@ -184,7 +184,7 @@ td {
 				</tr>
 				<!-- 장바구니 등록한사람만 리뷰 등록가능하게 만들기 -->
 				<tr>
-
+				
 
 
 				</tr>
