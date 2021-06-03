@@ -177,7 +177,20 @@ public class ProductServiceImpl extends DAO implements ProductService {
 	@Override
 	public int deleteProduct(ProductVO vo) {
 		// 상품 삭제
-		return 0;
+		String sql = "delete from product where item_code=?";
+		int del = 0;
+		try {
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, vo.getItemCode());
+			
+			del=psmt.executeUpdate();
+			System.out.println(del+"건 삭제완료.");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return del;
 	}
 	
 	// Cart Info Start
@@ -233,6 +246,25 @@ public class ProductServiceImpl extends DAO implements ProductService {
 		}
 		return cartList;
 	}
+	
+	// 로그인 한 id에 맞게 장바구니에 담아둔 상품의 갯수 보여줌
+		public int getCountCart(String id) {
+			String sql = "select count(*) from cart where user_id=?";
+			int rCnt = 0;
+			try {
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, id);
+				rs = psmt.executeQuery();
+				if(rs.next()) {
+					rCnt = rs.getInt(1);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}// 카트에 담긴 갯수를 리턴.
+			return rCnt;
+		}
 	
 	
 	// 닫아주기

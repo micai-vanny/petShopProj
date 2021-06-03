@@ -31,6 +31,9 @@ import com.pet.product.web.CatProductList;
 import com.pet.product.web.CatProductSelect;
 import com.pet.product.web.DogProdForm;
 import com.pet.product.web.DogProductInsert;
+import com.pet.product.web.AddCart;
+import com.pet.product.web.CartList;
+import com.pet.product.web.CatProdDelete;
 import com.pet.product.web.CatProdForm;
 import com.pet.product.web.CatProdUpdate;
 import com.pet.product.web.DogProductList;
@@ -68,6 +71,7 @@ public class FrontController extends HttpServlet {
 		map.put("/catProdForm.do", new CatProdForm());
 		map.put("/catProductInsert.do",new CatProductInsert());
 		map.put("/catProdUpdate.do", new CatProdUpdate());
+		map.put("/catProductDelete.do", new CatProdDelete());
 		
 		// Pet tip
 		map.put("/petTip.do", new PetTipList());
@@ -77,6 +81,10 @@ public class FrontController extends HttpServlet {
 		map.put("/petTipDelete.do", new PetTipDelete());
 		map.put("/petTipInsert.do", new PetTipInsert());
 		map.put("/petTipForm.do", new PetTipForm());
+		
+		// 카트
+		map.put("/addCart.do", new AddCart());
+		map.put("/cartList.do", new CartList());
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -70,7 +70,7 @@ td {
 			<button type="button" onclick="location.href='catProductList.do'">돌아가기</button>
 			<c:if test="${id eq 'admin' }">
 				&nbsp;<button type="button" onclick="formCheck()">상품수정</button>&nbsp;
-				<button type="button" onclick="location.href=''">상품삭제</button>
+				<button type="button" onclick="location.href='catProductDelete.do?itemCode=${catProd.itemCode}'">상품삭제</button>
 			</c:if>
 		</div>
 		<div class="prodContent">
