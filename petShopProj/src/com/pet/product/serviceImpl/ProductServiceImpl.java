@@ -217,7 +217,7 @@ public class ProductServiceImpl extends DAO implements ProductService {
 	// cart 안에 있는 상품들 보여주기
 	public List<ProductVO> selectCart(String id){
 		String sql = "select * from\r\n"
-				+ "(select user_id, item_code, sum(item_qty) qty from cart group by user_id, item_code) cart, product p\r\n"
+				+ "(select user_id, item_code, shipping, sum(item_qty) qty from cart group by user_id, item_code, shipping) cart, product p\r\n"
 				+ "where cart.item_code = p.item_code\r\n"
 				+ "and cart.user_id = ?";
 		List<ProductVO> cartList = new ArrayList<ProductVO>();
@@ -237,6 +237,7 @@ public class ProductServiceImpl extends DAO implements ProductService {
 				vo.setPrice(rs.getInt("price"));
 				vo.setSale(rs.getString("sale"));
 				vo.setSalePrice(rs.getInt("sale_price"));
+				vo.setShipping(rs.getInt("shipping"));
 				cartList.add(vo);
 			}
 		} catch (SQLException e) {
