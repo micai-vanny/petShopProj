@@ -194,80 +194,11 @@ public class ProductServiceImpl extends DAO implements ProductService {
 		return del;
 	}
 	
-	// Cart Info Start
-	
-	// Cart에 상품 넣기
-	public void addCart(String id, String itemCode, int qty) {
-		String sql = "insert into cart(user_id,item_code,item_qty) values(?,?,?)";
+	public ProductVO selectCart(ProductVO vo) {
 		
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, id);
-			psmt.setString(2, itemCode);
-			psmt.setInt(3, qty);
-			
-			int add = psmt.executeUpdate();
-			System.out.println(add+"건 추가완료");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-	}
-	
-	// cart 안에 있는 상품들 보여주기
-	public List<CartVO> selectCart(String id){
-		String sql = "select * from\r\n"
-				+ "(select user_id, item_code, shipping, sum(item_qty) qty from cart group by user_id, item_code, shipping) cart, product p\r\n"
-				+ "where cart.item_code = p.item_code\r\n"
-				+ "and cart.user_id = ?";
-		List<CartVO> cartList = new ArrayList<CartVO>();
 		
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, id);
-			rs = psmt.executeQuery();
-			
-			while(rs.next()) {
-				CartVO vo = new CartVO();
-				vo.setUserId(rs.getString("user_id"));
-				vo.setItemCode(rs.getString("item_code"));
-				vo.setItemQty(rs.getInt("qty"));
-				vo.setItemName(rs.getString("item_name"));
-				vo.setItemImage(rs.getString("item_image"));
-				vo.setPrice(rs.getInt("price"));
-				vo.setSale(rs.getString("sale"));
-				vo.setSalePrice(rs.getInt("sale_price"));
-				cartList.add(vo);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return cartList;
+		return vo;
 	}
-	
-	// 로그인 한 id에 맞게 장바구니에 담아둔 상품의 갯수 보여줌
-		public int getCountCart(String id) {
-			String sql = "select count(*) from cart where user_id=?";
-			int rCnt = 0;
-			try {
-				psmt = conn.prepareStatement(sql);
-				psmt.setString(1, id);
-				rs = psmt.executeQuery();
-				if(rs.next()) {
-					rCnt = rs.getInt(1);
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				close();
-			}// 카트에 담긴 갯수를 리턴.
-			return rCnt;
-		}
-			
-	
 	// 닫아주기
 	private void close() {
 		if(rs != null) {
