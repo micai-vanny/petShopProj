@@ -2,9 +2,39 @@
 <%@page import="java.util.List"%>
 <%@page import="com.pet.petTip.serviceImpl.PetTipServiceImpl"%>
 <%@page import="com.pet.petTip.service.PetTipService"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<style>
+.tbl {
+	border-bottom: 3px solid #D3D3D2;
+	width: 90%
+}
+
+tr {
+	border-top: 1px solid lightgray;
+	text-align: center;
+	padding: 8px;
+}
+
+td {
+	padding: 5px;
+}
+
+th {
+	border-top: 3px solid #D3D3D2;
+	border-bottom: 3px solid #D3D3D2;
+	text-align: center;
+	padding: 10px;
+}
+</style>
+<script>
+	function formSubmit(id) {
+		frm.id.value = id;
+		frm.submit();
+	}
+</script>
 <!-- gray bg -->
 <section class="container tm-home-section-1" id="more">
 	<div class="section-margin-top">
@@ -111,12 +141,6 @@
 					<hr>
 				</div>
 			</div>
-			<script>
-				function formSubmit(id) {
-					frm.id.value = id;
-					frm.submit();
-				}
-			</script>
 			<%
 			PetTipService service = new PetTipServiceImpl();
 			List<PetTipVO> list = service.petTipSelectList();
@@ -131,18 +155,18 @@
 					<div style="width: 90%; text-align: right; padding-bottom: 10px;">
 						<a href="petTipListPaging.do">more Tips></a>
 					</div>
-					<table class="table" border="1">
+					<table class="tbl">
 						<tr>
 							<th style="width: 30px; text-align: center">no.</th>
-							<th style="text-align: center">제목</th>
+							<th style="text-align: center"><font size="3pt">제목</font></th>
 							<th style="width: 120px; text-align: center">작성일자</th>
 							<th style="width: 100px; text-align: center">조회수</th>
 						</tr>
 						<c:choose>
 							<c:when test="${!empty list }">
 								<c:choose>
-									<c:when test="${list.size() > 4 }">
-										<c:forEach items="${list }" var="vo" end="5">
+									<c:when test="${fn:length(list) > 4 }">
+										<c:forEach items="${list }" var="vo" end="4">
 											<tr onclick="formSubmit(${vo.id })">
 												<td style="text-align: center">${vo.id }</td>
 												<td style="text-align: center">${vo.title }</td>
