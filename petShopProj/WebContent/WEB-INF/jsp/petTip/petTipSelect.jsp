@@ -40,6 +40,15 @@
 	font-size: 10pt;
 	padding: 5px;
 }
+
+.del-btn {
+	border: none;
+	border-radius: 0.3em;
+	background: #FA5858;
+	color: white;
+	font-size: 10pt;
+	padding: 5px;
+}
 </style>
 <div class= "wrap" align="center">
 	<div style="padding: 20px">
@@ -85,8 +94,8 @@
 		<div style="width: 80%; text-align: right">
 			<button type="button" class="return-btn" onclick="location.href='petTipListPaging.do'">돌아가기</button>
 			<c:if test="${id eq 'admin' }">
-				<button type="submit">수정하기</button>
-				<button type="button" onclick="location.href='petTipDelete.do?id=${petTip.id}'">삭제하기</button>
+				<button type="submit" class="edit-btn">수정하기</button>
+				<button type="button" class="del-btn" onclick="location.href='petTipDelete.do?id=${petTip.id}'">삭제하기</button>
 			</c:if>
 		</div>
 		<br>
