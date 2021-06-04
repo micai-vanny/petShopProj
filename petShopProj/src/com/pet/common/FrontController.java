@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.pet.cart.web.AddCart;
 import com.pet.cart.web.CartList;
-import com.pet.member.web.DelProdCart;
+import com.pet.cart.web.DelCart;
+import com.pet.cart.web.DelCartAll;
+import com.pet.cart.web.EditCart;
 import com.pet.member.web.MemberJoin;
 import com.pet.member.web.MemberJoinForm;
 import com.pet.member.web.MemberLogOut;
@@ -90,7 +92,9 @@ public class FrontController extends HttpServlet {
 		// 카트
 		map.put("/addCart.do", new AddCart());
 		map.put("/cartList.do", new CartList());
-		map.put("/delProdCart.do", new DelProdCart());
+		map.put("/editCart.do", new EditCart());
+		map.put("/delCartAll.do", new DelCartAll());	// 장바구니 내용 전체 삭제
+		map.put("/delCart.do", new DelCart());		// 장바구니 물건 1개 삭제
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

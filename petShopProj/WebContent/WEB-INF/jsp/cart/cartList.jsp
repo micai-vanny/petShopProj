@@ -121,7 +121,7 @@ caption {
 	</div>
 	<table style="border-bottom: 3px solid black; width: 80%">
 		<caption>
-			<button class="all-delbtn">전체 삭제</button>	
+			<button class="all-delbtn" onclick = "location.href='delCartAll.do?userId=${id}'">전체 삭제</button>	
 		</caption>
 		<tr>
 			<th width="10%">상품코드</th>
@@ -140,12 +140,18 @@ caption {
 							height="100px"></td>
 						<td style="line-height: 70%">${vo.itemName }
 							<center><hr style="width: 70%; border: 0.1px solid lightgray; margin: 10px"></center>
-							<div style="text-align:center;"><button class="delbtn" onclick="delProdCart.do?itemCode=${vo.itemCode}&userId=${id }">삭제</button></div>
+							<div style="text-align:center;"><button type="button" class="delbtn" onclick="location.href='delCart.do?userId=${id }&itemCode=${vo.itemCode }'">삭제</button></div>
 						</td>
 						<td><fmt:formatNumber type="currency"
 								value="${vo.price * vo.itemQty }"></fmt:formatNumber></td>
-						<td><input type="text" id="itemQty" name="itemQty" size=1 value="${vo.itemQty }"><br>
-							<div style="margin-top: 5px"><button class="qtybtn">수량수정</button></div>
+							
+						<td>
+							<form id="frm" action="editCart.do" method="post">
+								<input type="hidden" id="itemCode" name="itemCode" value="${vo.itemCode }">
+								<input type="hidden" id= "userId" name= "userId" value="${id }">
+								<input type="text" id="itemQty" name="itemQty" size=1 value="${vo.itemQty }"><br>
+							<div style="margin-top: 5px"><button type="submit" id="editCart" class="qtybtn">수량수정</button></div>
+							</form>
 						</td>
 						<c:set var="sum" value="${sum + vo.itemQty * vo.price }" />
 					</tr>
@@ -158,12 +164,18 @@ caption {
 						<td style="line-height: 70%">
 							${vo.itemName }<br>
 							<center><hr style="width: 70%; border: 0.1px solid lightgray; margin: 10px"></center>
-							<div style="text-align:center;"><button class="delbtn">삭제</button></div>
+							<div style="text-align:center;"><button type="button" class="delbtn" onclick="location.href='delCart.do?userId=${id }&itemCode=${vo.itemCode }'">삭제</button></div>
 						</td>
 						<td><fmt:formatNumber type="currency"
 								value="${vo.salePrice * vo.itemQty }"></fmt:formatNumber></td>
-						<td><input type="text" id="itemQty" name="itemQty" size=1 value="${vo.itemQty }"><br>
-							<div style="margin-top: 5px"><button type="button" class="qtybtn" onclick="">수량수정</button></div></td>
+						<td>
+							<form id="frm" action="editCart.do" method="post">
+								<input type="hidden" id="itemCode" name="itemCode" value="${vo.itemCode }">
+								<input type="hidden" id= "userId" name= "userId" value="${id }">
+							<input type="text" id="itemQty" name="itemQty" size=1 value="${vo.itemQty }"><br>
+							<div style="margin-top: 5px"><button  type="submit" id="editCart" class="qtybtn">수량수정</button></div>
+							</form>
+						</td>
 						<c:set var="sum" value="${sum + vo.itemQty * vo.salePrice }" />
 					</tr>
 				</c:otherwise>
@@ -181,9 +193,17 @@ caption {
 				</c:otherwise>
 			</c:choose>
 		</div>
-		<div class="price-total">	
-			주문 합계 : <font color="#0174DF"><fmt:formatNumber type="currency" value="${sum + 2500 }"></fmt:formatNumber></font>&nbsp;
-			<button type="button" class="paybtn">결제하기</button>
+		<div class="price-total">
+			<c:choose>
+				<c:when test="${sum < 50000 }">
+					주문 합계 : <font color="#0174DF"><fmt:formatNumber type="currency" value="${sum + 2500 }"></fmt:formatNumber></font>&nbsp;
+					<button type="button" class="paybtn">결제하기</button>
+				</c:when>
+				<c:otherwise>
+					주문 합계 : <font color="#0174DF"><fmt:formatNumber type="currency" value="${sum }"></fmt:formatNumber></font>&nbsp;
+					<button type="button" class="paybtn">결제하기</button>
+				</c:otherwise>
+			</c:choose>
 		</div>		
 	</div>
 </div>

@@ -8,17 +8,17 @@
 		    <li>
 			    <div class="tm-banner-inner">
 				</div>
-				<img src="${pageContext.request.contextPath }/template/img/banner-1.jpg" width="100px" height="100px" alt="Image" />	
+				<img src="${pageContext.request.contextPath }/template/img/tomcat.png" width="100%" alt="Image" />	
 		    </li>
 		    <li>
 			    <div class="tm-banner-inner">
 				</div>
-		      <img src="${pageContext.request.contextPath }/template/img/banner-2.jpg" width="100px" height="100px" alt="Image" />
+		      <img src="${pageContext.request.contextPath }/template/img/banner2.png" width="100%" alt="Image" />
 		    </li>
 		    <li>
 			    <div class="tm-banner-inner">
 				</div>
-		      <img src="${pageContext.request.contextPath }/template/img/banner-3.jpg" width="100px" height="100px" alt="Image" />
+		      <img src="${pageContext.request.contextPath }/template/img/banner3.png" width="100%" alt="Image" />
 		    </li>
 		  </ul>
 		</div>	
