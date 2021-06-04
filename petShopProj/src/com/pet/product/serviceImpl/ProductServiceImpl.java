@@ -194,11 +194,6 @@ public class ProductServiceImpl extends DAO implements ProductService {
 		return del;
 	}
 	
-	public ProductVO selectCart(ProductVO vo) {
-		
-		
-		return vo;
-	}
 	// 닫아주기
 	private void close() {
 		if(rs != null) {

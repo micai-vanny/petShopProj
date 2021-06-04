@@ -145,6 +145,13 @@ public class CartServiceImpl extends DAO implements CartService {
 		}// 카트에 담긴 갯수를 리턴.
 		return rCnt;
 	}
+	// user_id 에 cart가 담겨있는지 확인
+	public int selectCartMember(CartVO vo) {
+		String sql = "select * from cart where user_id = ? and item_code = ?;";
+		
+		return 0;
+		
+	}
 	
 	// 닫아주기
 	private void close() {
