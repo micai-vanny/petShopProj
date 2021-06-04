@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.pet.cart.service.CartService;
+import com.pet.cart.serviceImpl.CartServiceImpl;
 import com.pet.common.DbCommand;
 import com.pet.member.serviceImpl.MemberServiceImpl;
 import com.pet.member.vo.MemberVO;
@@ -27,8 +29,8 @@ public class MemberLogin implements DbCommand {
 		MemberVO mvo = service.loginCheck(vo);
 		
 		// 카트에 담긴 수량 세션으로 띄우려고 쓰는거임
-		ProductServiceImpl serv = new ProductServiceImpl();
-		int rCnt = serv.getCountCart(id);
+		CartService serv = new CartServiceImpl();
+		int cartCnt = serv.getCountCart(id);
 		
 		String path="";
 		
@@ -39,7 +41,7 @@ public class MemberLogin implements DbCommand {
 			// 받아온 ID/PASSWORD 값을 받아왔을때 (성공)
 			session.setAttribute("id", mvo.getId());
 			session.setAttribute("name", mvo.getName());
-			session.setAttribute("rCnt", rCnt);
+			session.setAttribute("cartCnt", cartCnt);
 			request.setAttribute("vo", mvo);
 			path = "index.do";
 			

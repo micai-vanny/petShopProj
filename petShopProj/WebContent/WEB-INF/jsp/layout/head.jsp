@@ -24,12 +24,11 @@
 								<li><a href="memberMenu.do">My Menu</a></li>
 								<form action="cartList.do" class="d-flex">
 									<!-- id로 장바구니 조회=> cartList.jsp -->
-									<input type="hidden" name="uid" value="${id }">
 									<div style="vertical-align: bottom">
 										<a href=""><button class="btn btn-outline-light"
 												type="submit">
 												<i class="bi-cart-fill me-1"></i> ${id }님의 Cart <span
-													class="badge bg-dark text-white ms-1 rounded-pill">${rCnt }</span>
+													class="badge bg-dark text-white ms-1 rounded-pill">${cartCnt }</span>
 												</button></a>
 									</div>
 								</form>

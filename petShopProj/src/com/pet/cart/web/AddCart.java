@@ -34,7 +34,6 @@ public class AddCart implements DbCommand {
 			System.out.println("중복이 없습니다. DB에 추가합니다.");
 		}
 		
-		service = new CartServiceImpl();
 		int cartCnt = service.getCountCart(id);
 		
 		session.setAttribute("cartCnt", cartCnt);

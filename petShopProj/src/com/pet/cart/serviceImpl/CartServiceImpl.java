@@ -67,21 +67,18 @@ public class CartServiceImpl extends DAO implements CartService {
 	@Override
 	public int addCart(CartVO vo) {
 		// 중복 상품 없을 시 DB에 새로 추가
-		String sql = "insert into cart values(?,?,?)";
+		String sql = "insert into cart(user_id, item_code) values(?,?)";
 		int add = 0;
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getUserId());
 			psmt.setString(2, vo.getItemCode());
-			psmt.setInt(3, vo.getItemQty());
 			
 			add = psmt.executeUpdate();
 			System.out.println(add+"건 추가완료");
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			close();
-		}
+		} 
 		return add;
 	}
 	@Override
@@ -91,17 +88,14 @@ public class CartServiceImpl extends DAO implements CartService {
 		int up = 0;
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, vo.getItemQty());
-			psmt.setString(2, vo.getUserId());
-			psmt.setString(3, vo.getItemCode());
+			psmt.setString(1, vo.getUserId());
+			psmt.setString(2, vo.getItemCode());
 			
 			up = psmt.executeUpdate();
 			System.out.println("상품 수량 "+up+"건 수정 완료");
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			close();
-		}
+		} 
 		return up;
 	}
 	
@@ -115,21 +109,56 @@ public class CartServiceImpl extends DAO implements CartService {
 			psmt.setInt(1, vo.getItemQty());
 			psmt.setString(2, vo.getUserId());
 			psmt.setString(3, vo.getItemCode());
+			
+			uq = psmt.executeUpdate();
+			System.out.println(uq+"건 수정 완료");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		return uq;
+	}
+	@Override
+	public int deleteCartAll(CartVO vo) {
+		// 장바구니 전체 삭제
+		String sql = "delete from cart where user_id=?";
+		int allD = 0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getUserId());
+			allD = psmt.executeUpdate();
+			System.out.println(allD+"삭제 완료");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
-		return uq;
+		
+		return allD;
 	}
+	
 	@Override
 	public int deleteCart(CartVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		// 장바구니 1건 삭제
+		String sql = "delete from cart where user_id=? and item_code=?";
+		int del = 0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getUserId());
+			psmt.setString(2, vo.getItemCode());
+			
+			del=psmt.executeUpdate();
+			System.out.println(del+"삭제 완료");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return del;
 	}
+
 	@Override
 	public int getCountCart(String id) {
-		String sql = "select count(*) from cart where user_id=?";
+		String sql = "select sum(item_qty) from cart where user_id=?";
 		int rCnt = 0;
 		try {
 			psmt = conn.prepareStatement(sql);
