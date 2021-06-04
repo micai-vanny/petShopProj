@@ -183,7 +183,8 @@ td {
 				<!-- 장바구니 등록한사람만 리뷰 등록가능하게 만들기 -->
 				<tr>
 				<td>
-				${catProd.itemCode }
+				<c:if test="${id }"></c:if>
+				${id }
 				
 	</td>
 				</tr>

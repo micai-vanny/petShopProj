@@ -4,15 +4,14 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <script>
-	function formSubmit(itemCode, id) {
+	function formSubmit(itemCode) {
 		frm.itemCode.value = itemCode;
-		frm.id.value = id;
 		frm.submit();
 	}
-
 </script>
-
-
+<form id="frm" action="catProductSelect.do" method="post">
+	<input type="hidden" id="itemCode" name="itemCode">
+</form>
 <section class="py-5">
 	<div class="container px-4 px-lg-5 mt-5">
 		<div
@@ -53,12 +52,8 @@
 								style="top: 0.5rem; right: 0.5rem">Sale</div>
 						</c:if>
 						<!-- Product image-->
-						<form id="frm" action="catProductSelect.do" method="post">
-						<input type="image" class="card-img-top" src="upload/${vo.itemImage }"
-							alt="상품이미지" >
-							<input type="hidden" id="id" name="id" value="${id }">
-							<input type="hidden" id="itemCode" name="itemCode" value="${vo.itemCode}">
-						</form>
+						<img class="card-img-top" src="upload/${vo.itemImage }"
+							alt="상품이미지" onclick="location.href='catProductSelect.do?itemCode=${vo.itemCode}'">
 						<!-- Product details-->
 						<div class="card-body p-4">
 							<div class="text-center">

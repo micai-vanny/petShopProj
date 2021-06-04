@@ -19,13 +19,15 @@ public class CatProductSelect implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
 		
-		String id = request.getParameter("id");
+		String id = (String) session.getAttribute("id");
 		String itemCode = request.getParameter("itemCode");
 		String page = request.getParameter("page");
 
 		System.out.println(id);
 		ProductVO vo = new ProductVO();
+		ProductVO pvo = new ProductVO();
 		BoardVO bvo = new BoardVO();
 		
 		if(page == null) {
@@ -35,6 +37,7 @@ public class CatProductSelect implements DbCommand {
 		
 		vo.setItemCode(itemCode);
 		bvo.setItemcode(itemCode);
+		pvo.
 		ProductService service = new ProductServiceImpl();
 		BoardServiceImpl bservice = new BoardServiceImpl();
 		
