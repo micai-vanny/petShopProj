@@ -1,8 +1,10 @@
-package com.pet.product.vo;
+package com.pet.cart.vo;
 
-public class ProductVO {
-	private String divCode;
+public class CartVO {
+	private String userId;
 	private String itemCode;
+	private int itemQty;
+	private String divCode;
 	private String itemName;
 	private String itemImage;
 	private String itemDesc;
@@ -12,17 +14,29 @@ public class ProductVO {
 	private int salePrice;
 	private int stock;
 	
-	public String getDivCode() {
-		return divCode;
+	public String getUserId() {
+		return userId;
 	}
-	public void setDivCode(String divCode) {
-		this.divCode = divCode;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	public String getItemCode() {
 		return itemCode;
 	}
 	public void setItemCode(String itemCode) {
 		this.itemCode = itemCode;
+	}
+	public int getItemQty() {
+		return itemQty;
+	}
+	public void setItemQty(int itemQty) {
+		this.itemQty = itemQty;
+	}
+	public String getDivCode() {
+		return divCode;
+	}
+	public void setDivCode(String divCode) {
+		this.divCode = divCode;
 	}
 	public String getItemName() {
 		return itemName;
@@ -72,5 +86,4 @@ public class ProductVO {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
-	
 }

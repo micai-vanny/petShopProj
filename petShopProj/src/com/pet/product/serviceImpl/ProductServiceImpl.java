@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.pet.cart.vo.CartVO;
 import com.pet.common.DAO;
 import com.pet.product.service.ProductService;
 import com.pet.product.vo.ProductVO;
@@ -215,12 +216,12 @@ public class ProductServiceImpl extends DAO implements ProductService {
 	}
 	
 	// cart 안에 있는 상품들 보여주기
-	public List<ProductVO> selectCart(String id){
+	public List<CartVO> selectCart(String id){
 		String sql = "select * from\r\n"
 				+ "(select user_id, item_code, sum(item_qty) qty from cart group by user_id, item_code) cart, product p\r\n"
 				+ "where cart.item_code = p.item_code\r\n"
 				+ "and cart.user_id = ?";
-		List<ProductVO> cartList = new ArrayList<ProductVO>();
+		List<CartVO> cartList = new ArrayList<CartVO>();
 		
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -228,7 +229,7 @@ public class ProductServiceImpl extends DAO implements ProductService {
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
-				ProductVO vo = new ProductVO();
+				CartVO vo = new CartVO();
 				vo.setUserId(rs.getString("user_id"));
 				vo.setItemCode(rs.getString("item_code"));
 				vo.setItemQty(rs.getInt("qty"));
