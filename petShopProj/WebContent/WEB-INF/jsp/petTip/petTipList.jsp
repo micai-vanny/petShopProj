@@ -1,6 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<style>
+.wrap {
+	background: white;
+	border-radius: 0.5em;
+	width: 80%;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+</style>
+
 <script>
 	function formSubmit(id) {
 		frm.id.value = id;
@@ -9,10 +20,10 @@
 </script>
 </head>
 <body>
+	<div class="wrap" align = "center">
 	<form id="frm" action="petTipSelect.do" method="post">
 		<input type="hidden" id="id" name="id">
 	</form>
-	<div align = "center">
 		<div style="padding: 20px">
 			<h2>Pet Tips!</h2>
 		</div>

@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.pet.cart.service.CartService;
+import com.pet.cart.serviceImpl.CartServiceImpl;
 import com.pet.common.DbCommand;
 import com.pet.member.serviceImpl.MemberServiceImpl;
 import com.pet.member.vo.MemberVO;
@@ -35,8 +37,13 @@ public class MemberJoin implements DbCommand {
 		MemberServiceImpl service = new MemberServiceImpl();
 		service.insertMember(vo);
 		
+		CartService serv = new CartServiceImpl();
+		int cartCnt = serv.getCountCart(id);
+		
 		session.setAttribute("id", id);
+		session.setAttribute("name", name);
 		session.setAttribute("member", vo);
+		session.setAttribute("cartCnt", cartCnt);
 		
 		return "index.do";
 		
