@@ -5,12 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.pet.common.DbCommand;
 
-public class DogProdForm implements DbCommand {
+public class prodForm implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return "product/dogProdInsert.tiles";
+		return "product/prodInsert.tiles";
 	}
 
 }

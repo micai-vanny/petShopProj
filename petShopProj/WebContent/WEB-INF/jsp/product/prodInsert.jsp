@@ -24,10 +24,10 @@
 <body>
 	<div align="center">
 		<div>
-			<h1>강아지 상품 등록</h1>
+			<h1>상품 등록</h1>
 		</div>
 		<div>				<!--   ┌>여기서 실행이 되는데 굉장히 재밌음 구선생님과 창호교수님 지식의 콜라보 -->
-			<form id="frm" action="dogProductInsert.do" method="post" enctype='multipart/form-data'>
+			<form id="frm" action="prodInsert.do" method="post" enctype='multipart/form-data'>
 				<div>													<!--    └>input type file 있으면 이거 써야 됨. 무족권 -->
 					<table border="1" style="border-collapse: collapse;">
 						<tr>
@@ -74,7 +74,7 @@
 					</table>
 				</div>
 				<div>
-					<button type="button" onclick="location.href='dogProductList.do'">돌아가기</button>
+					<button type="button" onclick="history.go(-1)">돌아가기</button>
 					<button type="button" onclick="formCheck()">등록</button>
 				</div>
 			</form>

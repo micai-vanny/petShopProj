@@ -2,7 +2,16 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<style>
+.reg-btn {
+	border: none;
+	border-radius: 0.3em;
+	background: #FF8000;
+	color: white;
+	font-size: 10pt;
+	padding: 5px;
+}
+</style>
 <script>
 	function formSubmit(itemCode) {
 		frm.itemCode.value = itemCode;
@@ -97,7 +106,7 @@
 	</div>
 	<div class="container px-4 px-lg-5 mt-5">
 		<c:if test="${id eq 'admin' }">
-			<button type="button" onclick="location.href='catProdForm.do'">상품업로드</button>
+			<button type="button" class="reg-btn" onclick="location.href='prodForm.do'">상품업로드</button>
 		</c:if>
 	</div>
 </section>
