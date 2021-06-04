@@ -175,10 +175,30 @@ public class CartServiceImpl extends DAO implements CartService {
 		return rCnt;
 	}
 	// user_id 에 cart가 담겨있는지 확인
-	public int selectCartMember(CartVO vo) {
-		String sql = "select * from cart where user_id = ? and item_code = ?;";
-		
-		return 0;
+	public CartVO selectCartMember(CartVO vo) {
+		String sql = "select * from cart where user_id = ? and item_code = ?";
+		CartVO cvo = null;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getUserId());
+			psmt.setString(2, vo.getItemCode());
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				cvo = new CartVO();
+				cvo.setUserId(rs.getString("user_id"));
+				cvo.setItemCode(rs.getString("item_code"));
+				/*
+				 * System.out.println(rs.getString("user_id"));
+				 * System.out.println(rs.getString("item_code"));
+				 */
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cvo;
 		
 	}
 	

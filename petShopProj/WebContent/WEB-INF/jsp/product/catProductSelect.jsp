@@ -8,12 +8,14 @@
 <script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
 <script>
 	$(function() {
-		CKEDITOR.replace('itemDesc',
-		{
-			filebrowserUploadUrl : '${pageContext.request.contextPath }/fileUpload',
-			height : '600px',
-			width : '900px'
-		});
+		CKEDITOR
+				.replace(
+						'itemDesc',
+						{
+							filebrowserUploadUrl : '${pageContext.request.contextPath }/fileUpload',
+							height : '600px',
+							width : '900px'
+						});
 	})
 
 	function formCheck() {
@@ -25,8 +27,17 @@
 		frm.submit();
 	}
 	function goPage(page) {
-		location.href = "catProductSelect.do?page=" + page + "&itemCode=${catProd.itemCode}";
+		location.href = "catProductSelect.do?page=" + page
+				+ "&itemCode=${catProd.itemCode}";
 	}
+	$(function() {
+		CKEDITOR.replace('content', {
+			filebrowserUploadUrl:'${pageContext.request.contextPath }/fileUpload',
+			height: '300px',
+			width: '100%'
+		});
+
+	})
 </script>
 <style>
 .wrap {
@@ -59,16 +70,19 @@ td {
 	padding: 15px;
 }
 </style>
+<form></form>
 <div class="wrap">
 	<form id="frm" action="prodUpdate.do" method="post"
 		enctype='multipart/form-data'>
+		<div>
 		<input type="hidden" id="itemCode" name="itemCode"
 			value="${catProd.itemCode }">
 		<div class="top_btn">
 			<button type="button" onclick="location.href='catProductList.do'">돌아가기</button>
 			<c:if test="${id eq 'admin' }">
 				&nbsp;<button type="button" onclick="formCheck()">상품수정</button>&nbsp;
-				<button type="button" onclick="location.href='prodDelete.do?itemCode=${catProd.itemCode}'">상품삭제</button>
+				<button type="button"
+					onclick="location.href='prodDelete.do?itemCode=${catProd.itemCode}'">상품삭제</button>
 			</c:if>
 		</div>
 		<div class="prodContent">
@@ -150,6 +164,12 @@ td {
 						</c:otherwise>
 					</c:choose>
 				</tr>
+				</table>
+				</div>
+				</div>
+				</form>
+				
+				<table>
 				<tr>
 					<td><c:forEach items="${list }" var="vo">
 							<div>
@@ -181,13 +201,30 @@ td {
 						</c:forEach></td>
 				</tr>
 				<!-- 장바구니 등록한사람만 리뷰 등록가능하게 만들기 -->
+			
+			
 				<tr>
-				<td>
-				<c:if test="${id }"></c:if>
-				${id }
-				
-	</td>
+
+					<td><c:if test="${cart.userId != null }">
+							<div style="height: 100%">
+							<form id="ffm" action ="boardInsert.do" method="post">
+								제목 : <input type="text" id="title" name="title">
+								이름 : <input type="text" id="username" name="username" value="${name }" readonly>
+								<textarea id ="content" name="content" rows="90" cols="20"></textarea>
+								<input type="hidden" id="id" name="id" value="${id }">
+								<input type="hidden" id="itemcode" name="itemcode" value="${cart.itemCode }">
+								<input type="radio" id="appraisal" name="appraisal" value="5">5점주기
+								<input type="radio" id="appraisal" name="appraisal" value="4">4점주기
+								<input type="radio" id="appraisal" name="appraisal" value="3">3점주기
+								<input type="radio" id="appraisal" name="appraisal" value="2">2점주기
+								<input type="radio" id="appraisal" name="appraisal" value="1" checked>1점주기
+								<button type="submit" > 글등록 </button>
+							</form>
+								
+							</div>
+						</c:if></td>
 				</tr>
+			
 			</table>
 			<!-- 페이징 호출 -->
 			<div style="text-align: center">
@@ -204,5 +241,5 @@ td {
 			<!-- 페이징 호출 종료 -->
 
 		</div>
-	</form>
+
 </div>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.pet.board.web.BoardInsert;
 import com.pet.cart.web.AddCart;
 import com.pet.cart.web.CartList;
 import com.pet.cart.web.DelCart;
@@ -62,6 +63,8 @@ public class FrontController extends HttpServlet {
 		map.put("/memberUpdate.do", new MemberUpdate());
 		
 		//리뷰게시판 페이징
+		
+		map.put("/boardInsert.do", new BoardInsert());
 		
 		// 강아지 상품페이지
 		map.put("/dogProductList.do", new DogProductList());

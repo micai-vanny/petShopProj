@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 import com.pet.board.service.BoardService;
 import com.pet.board.serviceImpl.BoardServiceImpl;
 import com.pet.board.vo.BoardVO;
+import com.pet.cart.serviceImpl.CartServiceImpl;
+import com.pet.cart.vo.CartVO;
 import com.pet.common.DbCommand;
 import com.pet.common.Paging;
 import com.pet.product.service.ProductService;
@@ -27,7 +29,7 @@ public class CatProductSelect implements DbCommand {
 
 		System.out.println(id);
 		ProductVO vo = new ProductVO();
-		ProductVO pvo = new ProductVO();
+		CartVO cvo = new CartVO();
 		BoardVO bvo = new BoardVO();
 		
 		if(page == null) {
@@ -37,9 +39,14 @@ public class CatProductSelect implements DbCommand {
 		
 		vo.setItemCode(itemCode);
 		bvo.setItemcode(itemCode);
-		pvo.
+		cvo.setItemCode(itemCode);
+		cvo.setUserId(id);
+		
 		ProductService service = new ProductServiceImpl();
 		BoardServiceImpl bservice = new BoardServiceImpl();
+		CartServiceImpl cservice = new CartServiceImpl();
+		
+		CartVO cvo2 = cservice.selectCartMember(cvo);
 		
 		service.catProductSelect(vo);
 		List<BoardVO> total = bservice.selectBoardList(bvo);
@@ -51,11 +58,22 @@ public class CatProductSelect implements DbCommand {
 		paging.setPageSize(5);
 		paging.setTotalCount(total.size());
 		
-		request.setAttribute("catProd", vo);
-		request.setAttribute("list", list);
-		request.setAttribute("paging", paging);	
+		String path= "";
 		
-		return "product/catProductSelect.tiles";
+		if(cvo2 == null) {
+			request.setAttribute("catProd", vo);
+			request.setAttribute("list", list);
+			request.setAttribute("paging", paging);	
+			path =  "product/catProductSelect.tiles";
+		} else {
+			request.setAttribute("cart", cvo);
+			request.setAttribute("catProd", vo);
+			request.setAttribute("list", list);
+			request.setAttribute("paging", paging);	
+			path = "product/catProductSelect.tiles";
+		}
+		
+		return path;
 	}
 
 }

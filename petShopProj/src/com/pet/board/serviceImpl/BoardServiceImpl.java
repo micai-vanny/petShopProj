@@ -70,7 +70,6 @@ public class BoardServiceImpl extends DAO implements BoardService{
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, bvo.getItemcode());
-			System.out.println(bvo.getItemcode());
 			rs = psmt.executeQuery();
 			while(rs.next()) {
 				BoardVO vo = new BoardVO();
@@ -84,7 +83,6 @@ public class BoardServiceImpl extends DAO implements BoardService{
 				vo.setAppraisal(rs.getInt("appraisal"));
 				vo.setItemcode(rs.getString("item_code"));
 				list.add(vo);
-				System.out.println(vo.getAppraisal() + vo.getBoardid());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
