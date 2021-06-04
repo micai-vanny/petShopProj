@@ -15,7 +15,7 @@ import com.pet.product.service.ProductService;
 import com.pet.product.serviceImpl.ProductServiceImpl;
 import com.pet.product.vo.ProductVO;
 
-public class CatProdUpdate implements DbCommand {
+public class prodUpdate implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
@@ -71,7 +71,11 @@ public class CatProdUpdate implements DbCommand {
 		String go = "";
 
 		if (up > 0) {
-			go = "/catProductList.do";
+			if(itemCode.startsWith("c")) {	// itemCode가 c로 시작하면
+				go = "/catProductList.do";	// 고양이 상품 목록 반환
+			} else {
+				go = "/dogProductList.do";
+			}
 		} else {
 			PrintWriter script;
 			try {

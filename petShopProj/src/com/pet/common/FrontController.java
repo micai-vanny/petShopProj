@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.pet.member.web.DelProdCart;
 import com.pet.member.web.MemberJoin;
 import com.pet.member.web.MemberJoinForm;
 import com.pet.member.web.MemberLogOut;
@@ -33,9 +34,9 @@ import com.pet.product.web.DogProdForm;
 import com.pet.product.web.DogProductInsert;
 import com.pet.product.web.AddCart;
 import com.pet.product.web.CartList;
-import com.pet.product.web.CatProdDelete;
+import com.pet.product.web.prodDelete;
 import com.pet.product.web.CatProdForm;
-import com.pet.product.web.CatProdUpdate;
+import com.pet.product.web.prodUpdate;
 import com.pet.product.web.DogProductList;
 import com.pet.product.web.DogProductSelect;
 
@@ -72,8 +73,10 @@ public class FrontController extends HttpServlet {
 		map.put("/catProductSelect.do", new CatProductSelect());
 		map.put("/catProdForm.do", new CatProdForm());
 		map.put("/catProductInsert.do",new CatProductInsert());
-		map.put("/catProdUpdate.do", new CatProdUpdate());
-		map.put("/catProductDelete.do", new CatProdDelete());
+
+		// 상품 수정, 삭제
+		map.put("/prodUpdate.do", new prodUpdate());
+		map.put("/prodDelete.do", new prodDelete());
 		
 		// Pet tip
 		map.put("/petTip.do", new PetTipList());
@@ -87,6 +90,7 @@ public class FrontController extends HttpServlet {
 		// 카트
 		map.put("/addCart.do", new AddCart());
 		map.put("/cartList.do", new CartList());
+		map.put("/delProdCart.do", new DelProdCart());
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

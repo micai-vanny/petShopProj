@@ -8,7 +8,7 @@ import com.pet.product.service.ProductService;
 import com.pet.product.serviceImpl.ProductServiceImpl;
 import com.pet.product.vo.ProductVO;
 
-public class CatProdDelete implements DbCommand {
+public class prodDelete implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
@@ -20,9 +20,17 @@ public class CatProdDelete implements DbCommand {
 		ProductService service = new ProductServiceImpl();
 		service.deleteProduct(vo);
 		
-		request.setAttribute("catProd", vo);
+		request.setAttribute("Prod", vo);
 		
-		return "catProductList.do";
+		String path="";
+		
+		if(itemCode.startsWith("c")) {	// itemCode가 c로 시작하면
+			path = "/catProductList.do";	// 고양이 상품 목록 반환
+		} else {
+			path = "/dogProductList.do";
+		}
+		
+		return path;
 	}
 
 }

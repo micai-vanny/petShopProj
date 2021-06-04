@@ -8,14 +8,12 @@
 <script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
 <script>
 	$(function() {
-		CKEDITOR
-				.replace(
-						'itemDesc',
-						{
-							filebrowserUploadUrl : '${pageContext.request.contextPath }/fileUpload',
-							height : '600px',
-							width : '900px'
-						});
+		CKEDITOR.replace('itemDesc',
+		{
+			filebrowserUploadUrl : '${pageContext.request.contextPath }/fileUpload',
+			height : '600px',
+			width : '900px'
+		});
 	})
 
 	function formCheck() {
@@ -62,7 +60,7 @@ td {
 }
 </style>
 <div class="wrap">
-	<form id="frm" action="catProdUpdate.do" method="post"
+	<form id="frm" action="prodUpdate.do" method="post"
 		enctype='multipart/form-data'>
 		<input type="hidden" id="itemCode" name="itemCode"
 			value="${catProd.itemCode }">
@@ -70,7 +68,7 @@ td {
 			<button type="button" onclick="location.href='catProductList.do'">돌아가기</button>
 			<c:if test="${id eq 'admin' }">
 				&nbsp;<button type="button" onclick="formCheck()">상품수정</button>&nbsp;
-				<button type="button" onclick="location.href='catProductDelete.do?itemCode=${catProd.itemCode}'">상품삭제</button>
+				<button type="button" onclick="location.href='prodDelete.do?itemCode=${catProd.itemCode}'">상품삭제</button>
 			</c:if>
 		</div>
 		<div class="prodContent">
