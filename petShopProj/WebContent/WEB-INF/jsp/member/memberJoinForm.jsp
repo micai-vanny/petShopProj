@@ -170,62 +170,103 @@
 				}).open();
 	}
 </script>
+<style>
+.wrap {
+	background: white;
+	border-radius: 0.5em;
+	width: 80%;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;	
+}
+
+.go-home {
+	border: none;
+	border-radius: 0.3em;
+	background: #FFBF00;
+	color: white;
+	font-size: 10pt;
+	padding: 5px;
+}
+
+.re-btn {
+	border: none;
+	border-radius: 0.3em;
+	background: #FF8000;
+	color: white;
+	font-size: 10pt;
+	padding: 5px;
+}
+
+.check-btn {
+	border: none;
+	border-radius: 0.3em;
+	background: #FA5858;
+	color: white;
+	font-size: 10pt;
+	padding: 5px;
+}
+</style>
+<title>회원가입폼</title>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
-<title>회원가입폼</title>
-<div>
-	<form id="frm" action="memberJoin.do" method="post">
-		<div>
-			<table border="1">
-				<tr>
-					<th width="150">아이디</th>
-					<td width="300"><input type="text" id="memberId"
-						name="memberId">
-						<button type="button" id="idCheck" value="unChecked">중복체크</button>
-					</td>
-				</tr>
-				<tr>
-					<th width="150">비밀번호</th>
-					<td width="300"><input type="password" id="password"
-						name="password"></td>
-				</tr>
-				<tr>
-					<th width="150">비밀번호 확인</th>
-					<td width="300"><input type="password" id="password2"
-						name="password2">
-						<button type="button" id="passwordCheck" value="unChecked">비밀번호
-							확인</button></td>
-				</tr>
-				<tr>
-					<th width="150">이름</th>
-					<td width="300"><input type="text" id="name" name="name">
-					</td>
-				</tr>
-				<tr>
-					<th width="150">E-Mail</th>
-					<td width="300"><input type="text" id="email" name="email">
-					</td>
-				</tr>
-				<tr>
-					<th width="150">주소</th>
-					<td width="300">
-						<input type="text" id="postcode" name="postcode" placeholder="우편번호" readonly> 
-						<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
-						<input type="text" id="roadAddress" name="roadAddress" placeholder="도로명주소" readonly>
-						<span id="guide" style="color: #999; display: none"></span> 
-						<input type="text" id="detailAddress" name="detailAddress" placeholder="상세주소"> 
-						<input type="text" id="extraAddress" name="extraAddress" placeholder="참고항목" readonly>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div>
-			<button type="button" onclick="formCheck()">회원가입</button>
-			<button type="reset">리셋</button>
-			<button type="button" onclick="location.href = 'index.do'">
-				홈으로</button>
-		</div>
-	</form>
-
+<div class="wrap">
+	<div align="center" style="padding-top: 20px">
+		<H2>회원 가입</H2>
+	</div>
+	<div style="padding: 30px">
+		<form id="frm" action="memberJoin.do" method="post">
+			<div align="center" style="margin-top:30px">
+				<table border="1">
+					<tr>
+						<th width="150">아이디</th>
+						<td width="300"><input type="text" id="memberId"
+							name="memberId">
+							<button type="button" id="idCheck" value="unChecked">중복체크</button>
+						</td>
+					</tr>
+					<tr>
+						<th width="150">비밀번호</th>
+						<td width="300"><input type="password" id="password"
+							name="password"></td>
+					</tr>
+					<tr>
+						<th width="150">비밀번호 확인</th>
+						<td width="300"><input type="password" id="password2"
+							name="password2">
+							<button type="button" id="passwordCheck" value="unChecked">비밀번호
+								확인</button></td>
+					</tr>
+					<tr>
+						<th width="150">이름</th>
+						<td width="300"><input type="text" id="name" name="name">
+						</td>
+					</tr>
+					<tr>
+						<th width="150">E-Mail</th>
+						<td width="300"><input type="text" id="email" name="email">
+						</td>
+					</tr>
+					<tr>
+						<th width="150">주소</th>
+						<td width="300">
+							<input type="text" id="postcode" name="postcode" placeholder="우편번호" readonly> 
+							<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
+							<input type="text" id="roadAddress" name="roadAddress" placeholder="도로명주소" readonly>
+							<span id="guide" style="color: #999; display: none"></span> 
+							<input type="text" id="detailAddress" name="detailAddress" placeholder="상세주소"> 
+							<input type="text" id="extraAddress" name="extraAddress" placeholder="참고항목" readonly>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div align="center" style="padding-top: 20px">
+				<button type="button" class= "check-btn" onclick="formCheck()">회원가입</button>
+				<button type="reset" class="re-btn">리셋</button>
+				<button type="button" class= "go-home" onclick="location.href = 'index.do'">
+					홈으로</button>
+			</div>
+		</form>
+	</div>
 </div>
