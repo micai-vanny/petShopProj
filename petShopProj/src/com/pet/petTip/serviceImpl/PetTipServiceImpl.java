@@ -53,6 +53,7 @@ public class PetTipServiceImpl extends DAO implements PetTipService {
 		return petTipList;
 	}
 	
+	
 	@Override
 	public List<PetTipVO> petTipSelectList() {
 		String sql = "select * from pet_tip order by id desc";
@@ -79,6 +80,19 @@ public class PetTipServiceImpl extends DAO implements PetTipService {
 		return petTipList;
 	}
 
+	public void hitCount(int id) {
+		// 조회수 1건 씩 증가
+		String sql = "update pet_tip set hit = hit+1 where id = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, id);
+			psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+	}
+
 	@Override
 	public PetTipVO petTipSelect(PetTipVO vo) {
 		// 게시글 번호로 게시글 조회
@@ -90,6 +104,7 @@ public class PetTipServiceImpl extends DAO implements PetTipService {
 			rs = psmt.executeQuery();
 			
 			if(rs.next()) {
+				hitCount(vo.getId());
 				vo.setId(rs.getInt("id"));
 				vo.setTitle(rs.getString("title"));
 				vo.setRegDate(rs.getDate("reg_date"));
