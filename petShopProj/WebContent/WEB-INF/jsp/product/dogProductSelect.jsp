@@ -58,6 +58,29 @@ $(function() {
 		location.href = "dogProductSelect.do?page=" + page
 				+ "&itemCode=${catProd.itemCode}";
 	}
+	
+	// 게시글 삭제 확인
+
+	function boardDelete(boardid) {
+		msg = "정말로 리뷰를 삭제하시겠습니까? 삭제하시면 되돌릴 수 없습니다.";
+		if (confirm(msg) != 0) {
+			location.href = "boardDelete.do?boardid=" + boardid + "&itemCode=${catProd.itemCode}";
+			// Yes click
+		} else {
+			return;
+			/* window.history.back(); */
+			// no click
+		}
+	} // myconfirm
+	
+	$(function() {
+		CKEDITOR.replace('content', {
+			filebrowserUploadUrl:'${pageContext.request.contextPath }/fileUpload',
+			height: '300px',
+			width: '100%'
+		});
+
+	})
 </script>
 <style>
 .wrap {
@@ -274,9 +297,25 @@ td {
 				</tr>
 				<!-- 장바구니 등록한사람만 리뷰 등록가능하게 만들기 -->
 				<tr>
-				
-
-
+					<td><c:if test="${cart.userId != null }">
+							<div style="height: 100%">
+							<form id="ffm" action ="boardInsert.do" method="post">
+								제목 : <input type="text" id="title" name="title">
+								이름 : <input type="text" id="username" name="username" value="${name }" readonly>
+								<textarea id ="content" name="content" rows="90" cols="20"></textarea>
+								<input type="hidden" id="id" name="id" value="${id }">
+								<input type="hidden" id="itemcode" name="itemcode" value="${cart.itemCode }">
+								<input type="radio" id="appraisal" name="appraisal" value="5">5점주기
+								<input type="radio" id="appraisal" name="appraisal" value="4">4점주기
+								<input type="radio" id="appraisal" name="appraisal" value="3">3점주기
+								<input type="radio" id="appraisal" name="appraisal" value="2">2점주기
+								<input type="radio" id="appraisal" name="appraisal" value="1" checked>1점주기
+								<button type="submit"> 글등록 </button>
+							</form>
+								
+							</div>
+						</c:if>
+					</td>
 				</tr>
 			</table>
 			<!-- 페이징 호출 -->
