@@ -29,11 +29,10 @@ public class BoardInsert implements DbCommand {
 		vo.setUserId(id);
 		vo.setItemcode(itemcode);
 		vo.setAppraisal(Integer.parseInt(appraisal));
-		System.out.println(itemcode);
+
 		int n = service.insertBoard(vo);
 		if(n != 0) {
-			request.setAttribute("itemCode", itemcode);
-			path = "catProductSelect.do";
+			path = "catProductSelect.do?itemCode=" + itemcode ;
 		} else {
 			path = "index.do";
 		}

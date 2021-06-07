@@ -22,7 +22,7 @@
 	function boardDelete(boardid) {
 		msg = "정말로 리뷰를 삭제하시겠습니까? 삭제하시면 되돌릴 수 없습니다.";
 		if (confirm(msg) != 0) {
-			location.href = "boardDelete.do?boardid=" + boardid;
+			location.href = "boardDelete.do?boardid=" + boardid + "&itemCode=${catProd.itemCode}";
 			// Yes click
 		} else {
 			return;
