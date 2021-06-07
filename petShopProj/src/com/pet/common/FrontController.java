@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.pet.board.web.BoardDelete;
 import com.pet.board.web.BoardInsert;
 import com.pet.cart.web.AddCart;
 import com.pet.cart.web.CartList;
@@ -35,6 +36,7 @@ import com.pet.petTip.web.PetTipUpdate;
 import com.pet.product.web.prodInsert;
 import com.pet.product.web.CatProductList;
 import com.pet.product.web.CatProductSelect;
+import com.pet.product.web.CatProducttiles;
 import com.pet.product.web.prodForm;
 import com.pet.product.web.prodDelete;
 import com.pet.product.web.prodUpdate;
@@ -64,6 +66,7 @@ public class FrontController extends HttpServlet {
 		//리뷰게시판 페이징
 		
 		map.put("/boardInsert.do", new BoardInsert());
+		map.put("/boardDelete.do", new BoardDelete());
 		
 		// 강아지 상품페이지
 		map.put("/dogProductList.do", new DogProductList());
@@ -72,6 +75,7 @@ public class FrontController extends HttpServlet {
 		// 고양이 상품페이지
 		map.put("/catProductList.do", new CatProductList());
 		map.put("/catProductSelect.do", new CatProductSelect());
+		map.put("/catProducttiles.do", new CatProducttiles());
 
 		// 상품 등록, 수정, 삭제
 		map.put("/prodForm.do", new prodForm());

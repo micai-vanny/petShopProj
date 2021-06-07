@@ -64,13 +64,13 @@ public class CatProductSelect implements DbCommand {
 			request.setAttribute("catProd", vo);
 			request.setAttribute("list", list);
 			request.setAttribute("paging", paging);	
-			path =  "product/catProductSelect.tiles";
+			path =  "catProducttiles.do";
 		} else {
 			request.setAttribute("cart", cvo);
 			request.setAttribute("catProd", vo);
 			request.setAttribute("list", list);
 			request.setAttribute("paging", paging);	
-			path = "product/catProductSelect.tiles";
+			path = "catProducttiles.do";
 		}
 		
 		return path;

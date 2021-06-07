@@ -94,7 +94,7 @@ public class BoardServiceImpl extends DAO implements BoardService{
 
 	@Override
 	public int insertBoard(BoardVO vo) {
-		String sql = "insert into review values(review_seq.nextval,?,?,?,?,?,sysdate,?,?)";
+		String sql = "insert into review values(review_seq.nextval,?,?,?,?,null,sysdate,?,?)";
 		int insert = 0;
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -102,9 +102,8 @@ public class BoardServiceImpl extends DAO implements BoardService{
 			psmt.setString(2, vo.getTitle());
 			psmt.setString(3, vo.getContent());
 			psmt.setInt(4, vo.getAppraisal());
-			psmt.setString(5, vo.getImage());
-			psmt.setString(6,vo.getUserId());
-			psmt.setString(7,vo.getItemcode());
+			psmt.setString(5,vo.getUserId());
+			psmt.setString(6,vo.getItemcode());
 			
 			insert = psmt.executeUpdate();
 		} catch (SQLException e) {
@@ -141,7 +140,7 @@ public class BoardServiceImpl extends DAO implements BoardService{
 
 	@Override
 	public int deleteBoard(BoardVO vo) {
-		String sql = "delete from review where board id = ?";
+		String sql = "delete from review where board_id = ?";
 		int delete = 0;
 		
 		try {
