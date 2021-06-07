@@ -3,6 +3,8 @@ package com.pet.board.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.pet.board.serviceImpl.BoardServiceImpl;
+import com.pet.board.vo.BoardVO;
 import com.pet.common.DbCommand;
 
 public class BoardInsert implements DbCommand {
@@ -16,9 +18,20 @@ public class BoardInsert implements DbCommand {
 		String itemcode = request.getParameter("itemcode");
 		String appraisal = request.getParameter("appraisal");
 
-		System.out.println(title + username + content + id + itemcode + appraisal);
+		BoardVO vo = new BoardVO();
+		BoardServiceImpl service = new BoardServiceImpl();
 		
-		return null;
+		vo.setTitle(title);
+		vo.setUserName(username);
+		vo.setContent(content);
+		vo.setUserId(id);
+		vo.setItemcode(itemcode);
+		vo.setAppraisal(Integer.parseInt(appraisal));
+		
+		service.insertBoard(vo);
+		
+				
+		return "product/catProductSelect.tiles";
 	}
 
 }
