@@ -54,15 +54,15 @@ th {
 		<div class="row">
 			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 				<div class="tm-home-box-2">
-					<img style="width: 254px; height: 254px" src="upload/dd.jpg"
+					<img style="width: 254px; height: 254px" src="upload/호랑이_두부모래_오리지날.PNG"
 						alt="image" class="img-responsive">
-					<h3>대졸귀고양이 동동이</h3>
-					<p class="tm-date">쩐다쩔어</p>
+					<h3>호랑이 두부모래 오리지널</h3>
+					<p class="tm-date">자연친화적인 두부모래!</p>
 					<div class="tm-home-box-2-container">
 						<a href="#" class="tm-home-box-2-link"><i
 							class="fa fa-heart tm-home-box-2-icon border-right"></i></a> <a
 							href="#" class="tm-home-box-2-link"><span
-							class="tm-home-box-2-description">불꽃가능캣</span></a> <a href="#"
+							class="tm-home-box-2-description">Add to Cart</span></a> <a href="#"
 							class="tm-home-box-2-link"><i
 							class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
 					</div>
@@ -70,15 +70,15 @@ th {
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 				<div class="tm-home-box-2">
-					<img style="width: 254px; height: 254px" src="upload/dg.jpg"
+					<img style="width: 254px; height: 254px" src="upload/마이베프_별자리스틱_주황.PNG"
 						alt="image" class="img-responsive">
-					<h3>개깜찍멍멍이 동건이</h3>
-					<p class="tm-date">오졌다 오졌어</p>
+					<h3>마이베프 별자리 스틱 주황</h3>
+					<p class="tm-date">종합 비타민이 가득한 영양간식!</p>
 					<div class="tm-home-box-2-container">
 						<a href="#" class="tm-home-box-2-link"><i
 							class="fa fa-heart tm-home-box-2-icon border-right"></i></a> <a
 							href="#" class="tm-home-box-2-link"><span
-							class="tm-home-box-2-description">Travel</span></a> <a href="#"
+							class="tm-home-box-2-description">Add to Cart</span></a> <a href="#"
 							class="tm-home-box-2-link"><i
 							class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
 					</div>
@@ -86,15 +86,15 @@ th {
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 				<div class="tm-home-box-2">
-					<img style="width: 254px; height: 254px" src="upload/logo.jpg"
+					<img style="width: 254px; height: 254px" src="upload/아스쿠_모정_사슴고기져키.PNG"
 						alt="image" class="img-responsive">
-					<h3>어서오쮸 톰캣마켙에</h3>
-					<p class="tm-date">눈팅시 징역</p>
+					<h3>아스쿠 모정 사슴고기 져키</h3>
+					<p class="tm-date">식감과 맛 모두를 만족하는 져키!</p>
 					<div class="tm-home-box-2-container">
 						<a href="#" class="tm-home-box-2-link"><i
 							class="fa fa-heart tm-home-box-2-icon border-right"></i></a> <a
 							href="#" class="tm-home-box-2-link"><span
-							class="tm-home-box-2-description">Travel</span></a> <a href="#"
+							class="tm-home-box-2-description">Add to Cart</span></a> <a href="#"
 							class="tm-home-box-2-link"><i
 							class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
 					</div>
@@ -102,15 +102,15 @@ th {
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 				<div class="tm-home-box-2 tm-home-box-2-right">
-					<img style="width: 254px; height: 254px" src="upload/skj.png"
+					<img style="width: 254px; height: 254px" src="upload/헬로도기_닭갈비.PNG"
 						alt="image" class="img-responsive">
-					<h3>지켜보고있다</h3>
-					<p class="tm-date">SKJ</p>
+					<h3>헬로 도기 닭갈비맛 져키</h3>
+					<p class="tm-date">모두가 좋아하는 닭갈비맛 져키!</p>
 					<div class="tm-home-box-2-container">
 						<a href="#" class="tm-home-box-2-link"><i
 							class="fa fa-heart tm-home-box-2-icon border-right"></i></a> <a
 							href="#" class="tm-home-box-2-link"><span
-							class="tm-home-box-2-description">Travel</span></a> <a href="#"
+							class="tm-home-box-2-description">Add to Cart</span></a> <a href="#"
 							class="tm-home-box-2-link"><i
 							class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
 					</div>

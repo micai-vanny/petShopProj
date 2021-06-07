@@ -129,10 +129,7 @@ public class CartServiceImpl extends DAO implements CartService {
 			System.out.println(allD+"삭제 완료");
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			close();
 		}
-		
 		return allD;
 	}
 	
@@ -150,8 +147,6 @@ public class CartServiceImpl extends DAO implements CartService {
 			System.out.println(del+"삭제 완료");
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			close();
 		}
 		return del;
 	}

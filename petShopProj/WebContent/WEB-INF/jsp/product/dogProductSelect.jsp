@@ -25,6 +25,35 @@ function formCheck() {
 	frm.submit();
 }
 
+function addCart(itemCode){
+	//e.preventDefault();
+	$.ajax({
+		url:'${pageContext.request.contextPath }/addCart.do',
+		data: {
+			id: '${id }', itemCode: itemCode
+		},
+		success: function(result) {
+			console.log(result);
+			location.href= 'dogProductList.do';
+		},
+		error: function (reject) {
+			console.log(reject);
+		}
+	});
+}
+
+<!--버튼 숨김/나타남 스크립트-->
+$(function() {
+	$(window).scroll(function() { 
+		if ($(this).scrollTop() > 200) { 
+			$('#topBtn').fadeIn(); } 
+		else { $('#topBtn').fadeOut(); }
+	}); 
+	$("#topBtn").click(function() { 
+   	$('html, body').animate({ scrollTop : 0  }, 300); 
+    return false; });
+});
+
 	function goPage(page) {
 		location.href = "dogProductSelect.do?page=" + page
 				+ "&itemCode=${catProd.itemCode}";
@@ -32,13 +61,18 @@ function formCheck() {
 </script>
 <style>
 .wrap {
-	margin: auto 0;
+	background: white;
+	border-radius: 0.5em;
+	width: 80%;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;	
 }
 
-.top_btn {
-	width: 100%;
-	padding: 10px;
-	margin-left: 10%;
+.top_line {
+	width: 75%;
+	padding-top: 30px;
+	margin-left: 15%;
 	text-align: left;
 }
 
@@ -49,32 +83,80 @@ function formCheck() {
 
 table {
 	border-bottom: 3px solid black;
-	width: 80%;
+	width: 75%;
 }
 
 tr {
 	padding: 20px;
-	border-top: 1px solid black;
+	border-top: 1px solid lightgray;
 }
 
 td {
 	padding: 15px;
 }
+
+.go-home {
+	border: none;
+	border-radius: 0.3em;
+	background: #FFBF00;
+	color: white;
+	font-size: 10pt;
+	padding: 5px;
+}
+
+.edit-btn {
+	border: none;
+	border-radius: 0.3em;
+	background: #FF8000;
+	color: white;
+	font-size: 10pt;
+	padding: 5px;
+}
+
+.del-btn {
+	border: none;
+	border-radius: 0.3em;
+	background: #FA5858;
+	color: white;
+	font-size: 10pt;
+	padding: 5px;
+}
+
+.add-cart{
+	border: none;
+	border-radius: 0.3em;
+	background: #FE2E2E;
+	color: white;
+	font-size: 10pt;
+	padding: 5px;
+}
+
+#topBtn{
+	position: fixed;
+	right: 25px; 
+	bottom: 25px;
+	display: none;
+	z-index: 9;
+}
 </style>
+<!--탑 버튼(텍스트)&스크립트 html 부분-->
+<!--탑 버튼(텍스트)-->
+<a id="topBtn" href="#">▲Top</a> 
+
 <div class="wrap">
 	<form id="frm" action="prodUpdate.do" method="post"
 		enctype='multipart/form-data'>
 		<input type="hidden" id="itemCode" name="itemCode"
 			value="${dogProd.itemCode }">
-		<div class="top_btn">
-			<button type="button" onclick="location.href='dogProductList.do'">돌아가기</button>
+		<div class="top_line">
+			<button type="button" class="go-home" onclick="location.href='dogProductList.do'">돌아가기</button>
 			<c:if test="${id eq 'admin' }">
-				&nbsp;<button type="button" onclick="formCheck()">상품수정</button>&nbsp;
-				<button type="button" onclick="location.href='prodDelete.do?itemCode=${dogProd.itemCode}'">상품삭제</button>
+				&nbsp;<button type="button" class="edit-btn" onclick="formCheck()">상품수정</button>&nbsp;
+				<button type="button" class="del-btn" onclick="location.href='prodDelete.do?itemCode=${dogProd.itemCode}'">상품삭제</button>
 			</c:if>
 		</div>
 		<div class="prodContent">
-			<div class="top_btn">
+			<div class="top_line">
 				<c:if test="${id eq 'admin' }">
 					<input type="radio" id="Y" name="sale" value="Y">세일함
 					<input type="radio" id="N" name="sale" value="N">세일안함
@@ -116,16 +198,24 @@ td {
 						<c:when test="${id ne 'admin' }">
 							<c:choose>
 								<c:when test="${dogProd.sale eq 'N' }">
-									<td align="right" style="font-size: 13pt; color: #015EBA">
-										<fmt:formatNumber type="currency" value="${dogProd.price }"></fmt:formatNumber>
+									<td align="right" style="font-size: 15pt; color: #015EBA; font-weight: bold;">
+										<fmt:formatNumber type="currency" value="${dogProd.price }"></fmt:formatNumber>&nbsp;&nbsp;&nbsp;
+										<c:if test="${!empty id }">
+											<button type="button" class="add-cart" onclick="addCart('${dogProd.itemCode}')">Add to Cart</button>
+										</c:if>
 									</td>
 								</c:when>
 								<c:otherwise>
 									<td align="right"><span
-										class="text-muted text-decoration-line-through"> <fmt:formatNumber
-												type="currency" value="${dogProd.price }"></fmt:formatNumber>
-									</span>&nbsp; <fmt:formatNumber type="currency"
-											value="${dogProd.salePrice }"></fmt:formatNumber></td>
+										class="text-muted text-decoration-line-through">
+										<font size="5pt"><fmt:formatNumber
+												type="currency" value="${dogProd.price }"></fmt:formatNumber></font></span>
+										<font size="5pt" color="#015EBA"><b>&nbsp;&nbsp;&nbsp;<fmt:formatNumber type="currency"
+											value="${dogProd.salePrice }"></fmt:formatNumber></b></font>&nbsp;&nbsp;&nbsp;
+											<c:if test="${!empty id }">
+												<button type="button" class="add-cart" onclick="addCart('${dogProd.itemCode}')">Add to Cart</button>
+											</c:if>
+											</td>
 								</c:otherwise>
 							</c:choose>
 						</c:when>
