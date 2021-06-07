@@ -27,7 +27,6 @@ public class CatProductSelect implements DbCommand {
 		String itemCode = request.getParameter("itemCode");
 		String page = request.getParameter("page");
 
-		System.out.println(id);
 		ProductVO vo = new ProductVO();
 		CartVO cvo = new CartVO();
 		BoardVO bvo = new BoardVO();

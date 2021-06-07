@@ -56,7 +56,7 @@ $(function() {
 
 	function goPage(page) {
 		location.href = "dogProductSelect.do?page=" + page
-				+ "&itemCode=${catProd.itemCode}";
+				+ "&itemCode=${dogProd.itemCode}";
 	}
 	
 	// 게시글 삭제 확인
@@ -64,7 +64,7 @@ $(function() {
 	function boardDelete(boardid) {
 		msg = "정말로 리뷰를 삭제하시겠습니까? 삭제하시면 되돌릴 수 없습니다.";
 		if (confirm(msg) != 0) {
-			location.href = "boardDelete.do?boardid=" + boardid + "&itemCode=${catProd.itemCode}";
+			location.href = "boardDelete.do?boardid=" + boardid + "&itemCode=${dogProd.itemCode}";
 			// Yes click
 		} else {
 			return;
@@ -169,6 +169,7 @@ td {
 <div class="wrap">
 	<form id="frm" action="prodUpdate.do" method="post"
 		enctype='multipart/form-data'>
+		<div>
 		<input type="hidden" id="itemCode" name="itemCode"
 			value="${dogProd.itemCode }">
 		<div class="top_line">
@@ -265,6 +266,12 @@ td {
 						</c:otherwise>
 					</c:choose>
 				</tr>
+				</table>
+				</div>
+				</div>
+				</form>
+				
+				<table align="center">
 				<tr>
 					<td><c:forEach items="${list }" var="vo">
 							<div>
@@ -291,6 +298,11 @@ td {
 							<div>
 								<p>${vo.content }</p>
 								<br>
+							</div>
+							<div>
+							<c:if test="${vo.userId eq id }">
+							<input type="button" id="id" name="id" value="삭제" onclick="boardDelete('${vo.boardid}')">
+							</c:if>
 							</div>
 							<hr>
 						</c:forEach></td>
@@ -333,5 +345,3 @@ td {
 			<!-- 페이징 호출 종료 -->
 
 		</div>
-	</form>
-</div>

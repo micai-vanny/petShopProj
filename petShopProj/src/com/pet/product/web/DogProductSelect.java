@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.pet.board.serviceImpl.BoardServiceImpl;
 import com.pet.board.vo.BoardVO;
+import com.pet.cart.serviceImpl.CartServiceImpl;
+import com.pet.cart.vo.CartVO;
 import com.pet.common.DbCommand;
 import com.pet.common.Paging;
 import com.pet.product.service.ProductService;
@@ -17,11 +20,15 @@ public class DogProductSelect implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		
+		String id = (String) session.getAttribute("id");
 		String itemCode = request.getParameter("itemCode");
 		String page = request.getParameter("page");
 		
 		ProductVO vo = new ProductVO();
 		BoardVO bvo = new BoardVO();
+		CartVO cvo = new CartVO();
 		
 		if(page == null) {
 			page="1";
@@ -30,9 +37,14 @@ public class DogProductSelect implements DbCommand {
 		
 		vo.setItemCode(itemCode);
 		bvo.setItemcode(itemCode);
+		cvo.setItemCode(itemCode);
+		cvo.setUserId(id);
 		
 		ProductService service = new ProductServiceImpl();
 		BoardServiceImpl bservice = new BoardServiceImpl();
+		CartServiceImpl cservice = new CartServiceImpl();
+		
+		CartVO cvo2 = cservice.selectCartMember(cvo);
 		
 		service.dogProductSelect(vo);
 		List<BoardVO> total = bservice.selectBoardList(bvo);
@@ -44,11 +56,23 @@ public class DogProductSelect implements DbCommand {
 		paging.setPageSize(5);
 		paging.setTotalCount(total.size());
 		
-		request.setAttribute("list", list);
-		request.setAttribute("paging", paging);		
-		request.setAttribute("dogProd", vo);
+		String path= "";
 		
-		return "product/dogProductSelect.tiles";
+		if(cvo2 == null) {
+			request.setAttribute("dogProd", vo);
+			request.setAttribute("list", list);
+			request.setAttribute("paging", paging);	
+			path =  "product/dogProductSelect.tiles";
+		} else {
+			request.setAttribute("cart", cvo);
+			request.setAttribute("dogProd", vo);
+			request.setAttribute("list", list);
+			request.setAttribute("paging", paging);	
+			path = "product/dogProductSelect.tiles";
+		}
+		
+		return path;
+		
 	}
 
 }
