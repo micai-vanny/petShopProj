@@ -17,6 +17,19 @@
 							width : '900px'
 						});
 	})
+	// 게시글 삭제 확인
+
+	function boardDelete(boardid) {
+		msg = "정말로 리뷰를 삭제하시겠습니까? 삭제하시면 되돌릴 수 없습니다.";
+		if (confirm(msg) != 0) {
+			location.href = "boardDelete.do?boardid=" + boardid;
+			// Yes click
+		} else {
+			return;
+			/* window.history.back(); */
+			// no click
+		}
+	} // myconfirm
 
 	function formCheck() {
 		if (frm.title.value == "") {
@@ -70,7 +83,6 @@ td {
 	padding: 15px;
 }
 </style>
-<form></form>
 <div class="wrap">
 	<form id="frm" action="prodUpdate.do" method="post"
 		enctype='multipart/form-data'>
@@ -197,6 +209,11 @@ td {
 								<p>${vo.content }</p>
 								<br>
 							</div>
+							<div>
+							<c:if test="${vo.userId eq id }">
+							<input type="button" id="id" name="id" value="삭제" onclick="boardDelete('${vo.boardid}')">
+							</c:if>
+							</div>
 							<hr>
 						</c:forEach></td>
 				</tr>
@@ -218,7 +235,7 @@ td {
 								<input type="radio" id="appraisal" name="appraisal" value="3">3점주기
 								<input type="radio" id="appraisal" name="appraisal" value="2">2점주기
 								<input type="radio" id="appraisal" name="appraisal" value="1" checked>1점주기
-								<button type="submit" > 글등록 </button>
+								<button type="submit"> 글등록 </button>
 							</form>
 								
 							</div>

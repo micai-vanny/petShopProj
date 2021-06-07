@@ -140,7 +140,7 @@ public class BoardServiceImpl extends DAO implements BoardService{
 
 	@Override
 	public int deleteBoard(BoardVO vo) {
-		String sql = "delete from review where board id = ?";
+		String sql = "delete from review where board_id = ?";
 		int delete = 0;
 		
 		try {

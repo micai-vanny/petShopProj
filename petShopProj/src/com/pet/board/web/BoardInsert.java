@@ -21,17 +21,24 @@ public class BoardInsert implements DbCommand {
 		BoardVO vo = new BoardVO();
 		BoardServiceImpl service = new BoardServiceImpl();
 		
+		String path = "";
+		
 		vo.setTitle(title);
 		vo.setUserName(username);
 		vo.setContent(content);
 		vo.setUserId(id);
 		vo.setItemcode(itemcode);
 		vo.setAppraisal(Integer.parseInt(appraisal));
+		System.out.println(itemcode);
+		int n = service.insertBoard(vo);
+		if(n != 0) {
+			request.setAttribute("itemCode", itemcode);
+			path = "catProductSelect.do";
+		} else {
+			path = "index.do";
+		}
 		
-		service.insertBoard(vo);
-		
-				
-		return "product/catProductSelect.tiles";
+		return path;
 	}
 
 }
