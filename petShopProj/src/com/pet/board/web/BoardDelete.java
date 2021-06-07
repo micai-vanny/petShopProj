@@ -12,6 +12,7 @@ public class BoardDelete implements DbCommand {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		String boardid = request.getParameter("boardid");
+		String itemCode = request.getParameter("itemCode");
 		
 		BoardVO vo = new BoardVO();
 		
@@ -21,7 +22,7 @@ public class BoardDelete implements DbCommand {
 		
 		service.deleteBoard(vo);
 		
-		return "catProductSelect.do";
+		return "catProductSelect.do?itemCode=" + itemCode;
 	}
-
+	
 }
